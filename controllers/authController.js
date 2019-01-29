@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../../db/models/User');
-const passport = require('../../passport');
+const User = require('../db/models/User');
+const passport = require('../passport');
 
 // router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 // router.get(
@@ -53,7 +53,7 @@ router.post('/logout', (req, res) => {
 	}
 })
 
-router.post('/signup', (req, res) => {
+router.post('/auth/signup', (req, res) => {
 	const { username, password } = req.body
 	// ADD VALIDATION
 	User.findOne({ 'local.username': username }, (err, userMatch) => {
