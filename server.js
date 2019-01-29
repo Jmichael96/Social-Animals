@@ -1,5 +1,5 @@
 const express = require("express");
-
+const dotenv = require("dotenv").config();
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,3 +18,5 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+module.exports = dotenv;
