@@ -1,0 +1,54 @@
+import React, { Component } from "react";
+import { MDBMask, MDBRow, MDBCol, MDBBtn,   MDBView, MDBContainer } from "mdbreact";
+import "./styles/home.css";
+
+class AppPage extends Component {
+
+  render() {
+    return (
+      <div id="apppage">
+        <MDBView>
+          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+            <MDBContainer>
+              <MDBRow>
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                  <h1 className="h1-responsive font-weight-bold mt-sm-5">
+                    Welcome to Social Animals!{" "}
+                  </h1>
+                  <hr className="hr-light" />
+                  <h6 className="mb-4">
+                    This app was created based off our mutual love of animals. Feel free to use this service to search for animals, post about your pet and search for nearby rescue animals!
+                  </h6>
+                  <MDBBtn color="elegant">Log In</MDBBtn>
+                  <MDBBtn color="unique">Create Account</MDBBtn>
+                  
+                </div>
+                <MDBCol md="6" xl="5" className="mt-xl-5">
+                  <img
+                    src="http://pluspng.com/img-png/cute-animal-png-hd-best-animals-hd-wallpapers-screenshot-thumbnail-394.png"
+                    alt=""
+                    className="img-fluid"
+                  />
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
+
+        <MDBContainer>
+          <MDBRow className="py-5">
+            <MDBCol md="12" className="text-center">
+              <p>
+                GitHub Repo:
+                Portfolio:
+                LinkedIn: 
+              </p>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </div>
+    );
+  }
+}
+
+export default AppPage;
