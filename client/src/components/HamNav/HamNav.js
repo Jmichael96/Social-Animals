@@ -27,7 +27,7 @@ render() {
           <MDBNavbarBrand>
             Social Animals
           </MDBNavbarBrand>
-          <MDBHamburgerToggler color="#d3531a" id="hamburger1" onClick={()=> this.toggleSingleCollapse('collapse1')} />
+          <MDBHamburgerToggler color="#d3531a" id="hamburgerNav" onClick={()=> this.toggleSingleCollapse('collapse1')} />
             <MDBCollapse isOpen={this.state.collapse1} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem active>

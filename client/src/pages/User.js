@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import NavBarPage from "../components/HamNav/HamNav";
-// import "./styles/home.css";
+import MapContainer from "../components/Map/index";
+import "./styles/home.css";
 
 class User extends Component {
 
     render() {
         return (
-            <NavBarPage />
+            <div>
+                <NavBarPage />
+                <MapContainer />
+            </div>
         );
     }
 }
