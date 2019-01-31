@@ -1,84 +1,43 @@
 import React, { Component } from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse, MDBContainer,
-MDBHamburgerToggler } from 'mdbreact';
+import {
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse, MDBContainer,
+    MDBHamburgerToggler
+} from 'mdbreact';
 
 class NavbarPage extends Component {
-state = {
- collapse1: false,
- collapseID: ''
-}
+    state = {
+        collapse1: false,
+        collapseID: ''
+    }
 
-toggleCollapse = collapseID => () => {
- this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
-}
+    toggleCollapse = collapseID => () => {
+        this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
+    }
 
-toggleSingleCollapse = collapseId => {
- this.setState({
-   ...this.state,
-   [collapseId]: !this.state[collapseId]
- });
-}
+    toggleSingleCollapse = collapseId => {
+        this.setState({
+            ...this.state,
+            [collapseId]: !this.state[collapseId]
+        });
+    }
 
-render(props) {
-    if(props.user){
- return (
-   <MDBContainer>
-     <MDBNavbar color="amber lighten-4" fixed = "top" light transparent>
-       <MDBContainer>
-         <MDBNavbarBrand>
-           Social Animals
-         </MDBNavbarBrand>
-         <MDBHamburgerToggler color="#d3531a" id="hamburgerNav" onClick={()=> this.toggleSingleCollapse('collapse1')} />
-           <MDBCollapse isOpen={this.state.collapse1} navbar>
-             <MDBNavbarNav left>
-               <MDBNavItem active>
-                 <MDBNavLink >Blog</MDBNavLink>
-               </MDBNavItem>
-               <MDBNavItem>
-                 <MDBNavLink >Find Pets/Shelters</MDBNavLink>
-               </MDBNavItem>
-               <MDBNavItem>
-                 <MDBNavLink >Signup</MDBNavLink>
-               </MDBNavItem>
-               <MDBNavItem>
-                 <MDBNavLink onClick={this.logout}>Logout</MDBNavLink>
-               </MDBNavItem>
-             </MDBNavbarNav>
-           </MDBCollapse>
-       </MDBContainer>
-     </MDBNavbar>
-   </MDBContainer>
-   );
- } else {
-    <MDBContainer>
-    <MDBNavbar color="amber lighten-4" fixed = "top" light transparent>
-      <MDBContainer>
-        <MDBNavbarBrand>
-          Social Animals
-        </MDBNavbarBrand>
-        <MDBHamburgerToggler color="#d3531a" id="hamburgerNav" onClick={()=> this.toggleSingleCollapse('collapse1')} />
-          <MDBCollapse isOpen={this.state.collapse1} navbar>
-            <MDBNavbarNav left>
-              <MDBNavItem active>
-                <MDBNavLink >Blog</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink >Find Pets/Shelters</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink >Signup</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink onClick={this.logout}>Logout</MDBNavLink>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
-  </MDBContainer>
-
- }
- }
+    render(props) {
+        return (
+            <MDBContainer>
+                <MDBNavbar color="amber lighten-4" fixed="top" light transparent>
+                    <MDBContainer>
+                        <MDBNavbarBrand>
+                            Social Animals
+                        </MDBNavbarBrand>
+                        <MDBHamburgerToggler color="#d3531a" id="hamburgerNav" onClick={() => this.toggleSingleCollapse('collapse1')} />
+                        <MDBCollapse isOpen={this.state.collapse1} navbar>
+                            {props.children}
+                        </MDBCollapse>
+                    </MDBContainer>
+                </MDBNavbar>
+            </MDBContainer>
+        );
+    }
 }
 
 export default NavbarPage;

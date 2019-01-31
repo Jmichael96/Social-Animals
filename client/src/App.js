@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginForm from "./components/Login/index";
-// import Data from "./components/Data/index";
 import Signup from "./components/Signup/index";
 import axios from "axios";
 import Greeting from "./components/Greeting/index";
-
-
 const DisplayLinks = props => {
+
   if (props.loggedIn) {
     return (
       <nav className="navbar">
@@ -16,12 +14,27 @@ const DisplayLinks = props => {
           <li className="nav-item">
             <Link to="/" className="nav-link">
               Home
-						</Link>
+          </Link>
+          </li>
+          <li>
+            <Link to="#" className="nav-link">
+              Maps
+          </Link>
+          </li>
+          <li>
+            <Link to="#" className="nav-link">
+              Profile
+          </Link>
+          </li>
+          <li>
+            <Link to="#" className="nav-link">
+              Blogs
+          </Link>
           </li>
           <li>
             <Link to="#" className="nav-link" onClick={props._logout}>
               Logout
-						</Link>
+          </Link>
           </li>
         </ul>
       </nav>
@@ -32,32 +45,30 @@ const DisplayLinks = props => {
         <ul className="nav">
           <li className="nav-item">
             <Link to="/" className="nav-link">
-              Home for Guest
-						</Link>
+              Home
+          </Link>
           </li>
           <li className="nav-item">
             <Link to="/login" className="nav-link">
               login
-						</Link>
+          </Link>
           </li>
           <li className="nav-item">
             <Link to="/signup" className="nav-link">
               sign up
-						</Link>
+          </Link>
           </li>
         </ul>
       </nav>
     )
   }
 }
-
-
 class App extends Component {
   constructor() {
     super()
     this.state = {
       loggedIn: false,
-      user: null
+      user: null,
     }
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
@@ -111,17 +122,16 @@ class App extends Component {
       })
   }
 
-  // import User from "../"
   render() {
     return (
       <Router>
         <div>
-          <Greeting user={this.state.user} />
-          <DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
-            <Route exact path="/" render={() => <Home user={this.state.user} />} />
-            <Route exact path="/login" render={() => <LoginForm _login={this._login} />}  />
-            <Route exact path="/signup" component={Signup} />
-            {/* <Route exact path="/user" component={User} /> */}
+        <Greeting id="greeting" user={this.state.user} />
+        <DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
+          <Route exact path="/" render={() => <Home user={this.state.user} />} />
+          <Route exact path="/login" render={() => <LoginForm _login={this._login} />} />
+          <Route exact path="/signup" component={Signup} />
+          {/* <Route exact path="/user" component={User} /> */}
         </div>
       </Router>
     );

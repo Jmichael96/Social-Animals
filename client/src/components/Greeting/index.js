@@ -1,20 +1,21 @@
 import React from 'react'
+import "./style.css";
 // TODO - add proptypes
 
 const Header = props => {
 	let Greeting
 	if (props.user === null) {
 		Greeting = <p>Hello guest</p>
-	} else if (props.user) {
+	} else if (props.user.firstName) {
 		Greeting = (
-			<p>
-				Welcome back, <strong>{props.user.username}</strong>
+			<p id="greeting">
+				Welcome back, <strong>{props.user.firstName}</strong>
 			</p>
 		)
-	} else if (props.user) {
+	} else if (props.user.local.username) {
 		Greeting = (
-			<p>
-				Welcome back, <strong>{props.user.username} </strong>
+			<p id="greeting">
+				Welcome back, <strong>{props.user.local.username} </strong>
 			</p>
 		)
 	}

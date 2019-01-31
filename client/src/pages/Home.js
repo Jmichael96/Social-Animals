@@ -5,8 +5,7 @@ import "./styles/home.css";
 const Home = (props) => {
     return (
       <div id="apppage">
-        <MDBView>
-          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+          <MDBMask className="d-flex justify-content-center align-items-center app">
             <MDBContainer>
               <MDBRow>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
@@ -31,7 +30,6 @@ const Home = (props) => {
               </MDBRow>
             </MDBContainer>
           </MDBMask>
-        </MDBView>
 
         <MDBContainer>
           <MDBRow className="py-5">
