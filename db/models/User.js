@@ -35,7 +35,6 @@ userSchema.pre('save', function(next) {
 	// this.password = this.hashPassword(this.password)
 	// next()
 })
-
 // Create reference to User & export
 const User = mongoose.model('User', userSchema)
 module.exports = User

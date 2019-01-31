@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../db/models/User');
 const passport = require('../passport');
+const Post = require("../db/models/Post");
 
 // router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 // router.get(
@@ -11,7 +12,7 @@ const passport = require('../passport');
 // 		failureRedirect: '/login'
 // 	})
 // )
-
+ 
 // this route is just used to get the user basic info
 router.get('/user', (req, res, next) => {
 	console.log('===== user!!======')
@@ -72,5 +73,26 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
-
+router.post("/create", (req, res) =>{
+    const { title, authorName, content, date } = req.body;
+    // const userId = req.user;
+    console.log(req.body);
+    Post.findOne({ '_id': req.params.id}), (err, postMatch) => {
+		if (postMatch) {
+			return res.json({
+				error: `Sorry, this post already exists: ${_id}`
+			})
+		}
+        const newPost = new Post({
+			'local.title': title,
+            'local.authorName': authorName,
+            'local.content': content,
+			'local.date': date,
+        })
+        newPost.save((err, savedPost) => {
+            if(err) return res.json(err);
+            return res.json(savedPost);
+        });
+    };
+});
 module.exports = router
