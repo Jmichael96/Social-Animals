@@ -4,6 +4,7 @@ const User = require('../db/models/User');
 const passport = require('../passport');
 const Post = require("../db/models/Post");
 
+
 // router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 // router.get(
 // 	'/google/callback',
@@ -23,7 +24,21 @@ router.get('/user', (req, res, next) => {
 		return res.json({ user: null })
 	}
 })
-
+// Route to get all User's and populate them with their notes
+router.get("/populateduser", function(req, res) {
+	// Find all users
+	User.find({})
+	  // Specify that we want to populate the retrieved users with any associated notes
+	  .populate("posts")
+	  .then(function(dbUser) {
+		// If able to successfully find and associate all Users and Notes, send them back to the client
+		res.json(dbUser);
+	  })
+	  .catch(function(err) {
+		// If an error occurs, send it back to the client
+		res.json(err);
+	  });
+  });
 router.post(
 	'/login',
 	function(req, res, next) {
@@ -77,8 +92,8 @@ router.post("/create", (req, res) =>{
     const { title, authorName, content, date } = req.body;
     // const userId = req.user;
     console.log(req.body);
-    Post.findOne({ '_id': req.params.id}), (err, postMatch) => {
-		if (postMatch) {
+    Post.create((err) => {
+		if (err) {
 			return res.json({
 				error: `Sorry, this post already exists: ${_id}`
 			})
@@ -89,10 +104,40 @@ router.post("/create", (req, res) =>{
             'local.content': content,
 			'local.date': date,
         })
-        newPost.save((err, savedPost) => {
+        newPost.save((err, dbPost) => {
             if(err) return res.json(err);
-            return res.json(savedPost);
+			return User.findOneAndUpdate({}, { $push: { posts: dbPost._id } }, { new: true });
+
         });
-    };
+    });
 });
+
+// Route for retrieving all Notes from the db
+router.get("/posts", function(req, res) {
+	// Find all Notes
+Post.find({})
+	  .then(function(dbNote) {
+		// If all Notes are successfully found, send them back to the client
+		res.json(dbNote);
+	  })
+	  .catch(function(err) {
+		// If an error occurs, send the error back to the client
+		res.json(err);
+	  });
+  });
+  
+  // Route for retrieving all Users from the db
+  router.get("/user", function(req, res) {
+	// Find all Users
+	User.find({})
+	  .then(function(dbUser) {
+		// If all Users are successfully found, send them back to the client
+		res.json(dbUser);
+	  })
+	  .catch(function(err) {
+		// If an error occurs, send the error back to the client
+		res.json(err);
+	  });
+  });
+  
 module.exports = router
