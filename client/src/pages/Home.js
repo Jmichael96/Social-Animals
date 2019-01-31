@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn,   MDBView, MDBContainer } from "mdbreact";
 import "./styles/home.css";
 
-class AppPage extends Component {
-
-  render() {
+const Home = (props) => {
     return (
       <div id="apppage">
         <MDBView>
@@ -49,6 +47,4 @@ class AppPage extends Component {
       </div>
     );
   }
-}
-
-export default AppPage;
+export default Home;
