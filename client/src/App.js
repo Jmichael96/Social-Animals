@@ -30,7 +30,7 @@ const DisplayLinks = props => {
           </Link>
           </li>
           <li>
-            <Link to="#" className="nav-link">
+            <Link to="/Blogs" className="nav-link">
               Blogs
           </Link>
           </li>
@@ -58,12 +58,22 @@ const DisplayLinks = props => {
           </li>
           <li className="nav-item">
             <Link to="/login" className="nav-link">
-              login
+              Login
           </Link>
           </li>
           <li className="nav-item">
             <Link to="/signup" className="nav-link">
-              sign up
+              Sign Up
+          </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/CreatePost" className="nav-link">
+             Create Post
+          </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Blogs" className="nav-link">
+             Blogs
           </Link>
           </li>
         </ul>
