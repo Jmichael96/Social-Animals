@@ -9,7 +9,7 @@ const petfinder = pf({
   secret: process.env.REACT_APP_PF_APISECRET
 });
 
-class Search extends Component {
+class PetSearch extends Component {
   constructor(props) {
     super(props);
 
@@ -87,4 +87,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default PetSearch;

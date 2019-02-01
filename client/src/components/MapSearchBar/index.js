@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBCol, MDBFormInline, MDBIcon, MDBBtn} from "mdbreact";
 
-const Search = () => {
+const MapSearchBar = () => {
  return (
    <MDBCol md="6">
      <MDBFormInline className="md-form">
@@ -13,4 +13,4 @@ const Search = () => {
  );
 }
 
-export default Search;
+export default MapSearchBar;
