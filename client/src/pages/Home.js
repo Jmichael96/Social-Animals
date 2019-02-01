@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBMask, MDBRow, MDBCol, MDBBtn,   MDBView, MDBContainer } from "mdbreact";
+import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 import "./styles/home.css";
 
 const Home = (props) => {

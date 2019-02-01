@@ -7,7 +7,6 @@ require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const morgan = require('morgan')
 // const routes = require("./routes/apiRoutes");
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -15,9 +14,9 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./passport')
 const app = express();
 const PORT =  8080;
-
+const logger = require("morgan");
+app.use(logger("dev"));
 // ===== Middleware ====
-app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
 		extended: false
@@ -37,7 +36,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
-app.use("/api", require("./routes/auth"));
+app.use("/api", require("./routes/auth")); 
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {

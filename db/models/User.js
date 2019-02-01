@@ -9,8 +9,23 @@ const userSchema = new Schema({
 	lastName: { type: String, unique: false },
 	local: {
 		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false }
+		password: { type: String, unique: false, required: false },
+		posts: 
+			{
+			  // Store ObjectIds in the array
+			  type: Schema.Types.ObjectId,
+			  // The ObjectIds will refer to the ids in the Note model
+			  ref: "Post"
+			}
 	},
+	posts: 
+			{
+			  // Store ObjectIds in the array
+			  type: Schema.Types.ObjectId,
+			  // The ObjectIds will refer to the ids in the Note model
+			  ref: "Post"
+			}
+	
 })
 
 // Define schema methods
@@ -35,7 +50,6 @@ userSchema.pre('save', function(next) {
 	// this.password = this.hashPassword(this.password)
 	// next()
 })
-
 // Create reference to User & export
 const User = mongoose.model('User', userSchema)
 module.exports = User
