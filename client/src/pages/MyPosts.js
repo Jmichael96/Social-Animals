@@ -10,7 +10,6 @@ import EditIcon from 'material-ui/svg-icons/image/edit';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import Chip from 'material-ui/Chip';
 import { updateBlog, getBlogItem, deleteItem } from '../../actions/blog';
-import EditBlogForm from '../forms/EditBlogForm';
 
 class BlogItemPage extends React.Component {
   state = {
@@ -130,12 +129,6 @@ class BlogItemPage extends React.Component {
           </div>
         )}
 
-        {this.state.isEditable && (
-          <div>
-            <h2>Edit Blog</h2>
-            <EditBlogForm blog={this.state.blog} submit={this.submit} />
-          </div>
-        )}
       </div>
     );
   }

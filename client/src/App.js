@@ -141,6 +141,7 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
+          {/* <Route exact path="/myposts" component={MyPosts} /> */}
           {/* <Route exact path="/user" component={User} /> */}
         </div>
       </Router>

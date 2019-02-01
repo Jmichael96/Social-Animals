@@ -36,7 +36,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
-app.use("/api", require("./routes/auth")); 
+app.use("/api", require("./routes")); 
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
