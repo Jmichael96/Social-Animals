@@ -8,7 +8,7 @@ import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
 // import CreatePostPage from "./pages/CreatePostPage";
-import Search from "./pages/Search";
+// import Search from "./pages/Search";
 
 const DisplayLinks = props => {
 
@@ -153,7 +153,7 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
-          <Route exact path="/map" component={Search} />
+          {/* <Route exact path="/map" component={Search} /> */}
         </div>
       </Router>
     );

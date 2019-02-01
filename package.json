@@ -34,6 +34,7 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "pet-finder-api": "^1.0.1"
+    "pet-finder-api": "^1.0.1",
+    "petfinder-client": "0.0.3"
   }
 }
