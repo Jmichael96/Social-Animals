@@ -178,7 +178,7 @@ router.get("/populateduser", (req,res) =>{
 		res.json(dbUser);
 	})
 	.catch((err) =>{
-		res.json(err);
+		res.json(err);	
 	});
 });
   
