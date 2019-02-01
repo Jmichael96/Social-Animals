@@ -1,11 +1,11 @@
 import React from 'react'
 import "./style.css";
-// TODO - add proptypes
+
 
 const Header = props => {
 	let Greeting
 	if (props.user === null) {
-		Greeting = <p>Hello guest</p>
+		Greeting = <p>Welcome Fellow Pet-Lover!!!</p>
 	} else if (props.user.firstName) {
 		Greeting = (
 			<p id="greeting">

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from 'react-router-dom'
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 
 class CreatePost extends Component{
 
@@ -47,55 +48,70 @@ class CreatePost extends Component{
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
         return (
-            <div>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="title">Title</label>
-                        <input 
-                        type="text" 
-                        name="title" 
-                        value={this.state.title}
+            <MDBContainer>
+        <MDBRow>
+          <MDBCol md="6">
+            <form>
+              <p className="h5 text-center mb-4">Create Post</p>
+              <div className="grey-text">
+                <MDBInput
+                  label="Title"
+                  icon="file"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                  value={this.state.title}
                         onChange={this.handleChange}
-                        className="form-control form-control-lg" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="authorName">Your Name</label>
-                        <input 
-                        type="text" 
-                        name="authorName" 
+                    name="title"
+                />
+                <MDBInput
+                  label="Your name"
+                  icon="user"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                  name="authorName" 
                         value={this.state.authorName} 
                         onChange={this.handleChange}
-                        className="form-control form-control-lg" />
-                    </div>
-                </form>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="content">
-                            Summary
-                    </label>
-                        <textarea 
-                            type="text" 
-                            name="content"
-                            className="form-control"
-                            value={this.state.content}
-                            onChange={this.handleChange}
-                            rows="5"
-                        />
-                    </div>
-                </form>
-                <div className="form-group">
-                        <label htmlFor="date">Date</label>
-                        <input 
-                        type="text" 
-                        name="date" 
-                        value={this.state.date}
-                        onChange={this.handleChange}
-                        className="form-control form-control-lg" />
-                    </div>
-                    <button onClick={this.handleSubmit}>Post</button>
-            </div>
+                />
+                <MDBInput
+                  label="Confirm your email"
+                  icon="exclamation-triangle"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                />
+              
+                 <div className="form-group">
+            <label htmlFor="exampleFormControlTextarea1">
+            Create Blog
+            </label>
+            <textarea
+            type="text" 
+            name="content"
+            className="form-control"
+            value={this.state.content}
+            onChange={this.handleChange}
+            rows="5"
+            />
+        </div>
+              </div>
+              <div className="text-center">
+                <MDBBtn color="primary" onClick={this.handleSubmit}>Post</MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
         );
     }
 }
 
 export default CreatePost;
+

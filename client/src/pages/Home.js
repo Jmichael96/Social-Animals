@@ -35,7 +35,7 @@ const Home = (props) => {
           <MDBRow className="py-5">
             <MDBCol md="12" className="text-center">
               <p>
-                GitHub Repo:
+                GitHub Repo:https://github.com/rchlblns
                 Portfolio:
                 LinkedIn: 
               </p>

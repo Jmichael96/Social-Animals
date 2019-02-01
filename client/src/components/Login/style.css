@@ -1,3 +1,13 @@
-#login-form{
-    margin-top: 200px;
+
+
+div {
+    margin: 0 auto;
+    margin-top: 20px; 
+}
+
+.card-image {
+
+
+    background-image: 100%; 
+    background-position: center;
 }
