@@ -37,7 +37,7 @@ const Home = (props) => {
           <MDBCol md="3">
             <h5 className="title">About Us</h5>
             <p>
-             Listed here is the information for our Github repositories, personal portfolios and resumes.  
+             Listed here is the information for our Github repositories, personal portfolios and LinkedIn profiles.  
             </p>
           </MDBCol>
           <MDBCol md="3">

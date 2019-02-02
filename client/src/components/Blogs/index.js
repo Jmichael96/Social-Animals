@@ -134,6 +134,8 @@ const Blogs = () => {
         </MDBRow>
       </MDBCardBody>
     </MDBCard>
+
+    
     
   );
 }
