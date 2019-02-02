@@ -14,7 +14,7 @@ const Home = (props) => {
                   </h1>
                   <hr className="hr-light" />
                   <h6 className="mb-4">
-                    This app was created based off our mutual love of animals. Feel free to use this service to search for animals, post about your pet and search for nearby rescue animals!
+                    This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!
                   </h6>
                   <MDBBtn color="elegant">Log In</MDBBtn>
                   <MDBBtn color="unique">Create Account</MDBBtn>

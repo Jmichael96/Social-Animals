@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import pf from "petfinder-client";
 // import { Consumer } from '../SearchContext';
 import Pet from "../Pet/index";
-import SearchBox from "../SearchBox/index";
+import PetSearchBox from "../PetSearchBox/index";
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
@@ -46,7 +46,7 @@ class Results extends Component {
   render() {
     return (
       <div className="search">
-        <SearchBox search={this.search} />
+        <PetSearchBox search={this.search} />
         {this.state.pets.map(pet => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {

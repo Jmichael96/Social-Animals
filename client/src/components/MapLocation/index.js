@@ -63,14 +63,14 @@ export class CurrentLocation extends Component {
     loadMap() {
         if (this.props && this.props.google) {
             const { google } = this.props;
-            const maps = google.maps;
+            const map = google.maps;
             const mapRef = this.refs.map;
 
             const node = ReactDOM.findDOMNode(mapRef);
 
             let { zoom } = this.props;
-            const { let, lng } = this.state.currentLocation;
-            const center = new.maps.LatLng(lat,lng);
+            const { lat, lng } = this.state.currentLocation;
+            let center = new.map.LatLng(lat,lng);
             const mapConfig = Object.assign(
                 {},
                 {

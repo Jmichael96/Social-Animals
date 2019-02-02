@@ -5,7 +5,7 @@ import CurrentLocation from "../MapLocation/index";
 const mapstyles = {
   width: "100%",
   height: "100%"
-},
+};
 
 
 export class MapContainer extends Component {
@@ -58,5 +58,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: REACT_APP_GOOGLE_APIKEY
+  apiKey: process.env.REACT_APP_GOOGLE_APIKEY
 })(MapContainer);

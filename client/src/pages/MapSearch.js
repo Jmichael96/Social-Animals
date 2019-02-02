@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBCol, MDBFormInline, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBCol, MDBFormInline, MDBIcon, MDBBtn, MDBRow } from "mdbreact";
 import MapSearchBar from "../components/MapSearchBar/index"
 import MapContainer from "../components/MapContainer/index";
 import axios from "axios";
@@ -8,19 +8,20 @@ class MapSearch extends Component {
 
     constructor(props) {
         super(props);
-        state = {
+        this.state = {
             query: " ",
             searchResults: []
-        }
+        }  
     }
 
     search = () => {
         const BASE_URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input="
-        fetch(`${BASE_URL}${this.state.query}${process.env.REACT_APP_GOOGLE_APIKEY}`)
+        const key = `&key=${process.env.REACT_APP_GOOGLE_APIKEY}`
+        fetch(`${BASE_URL}${this.state.query}${key}`)
             .then(res => Response.json())
             .then(json => {
                 let { searchResults } = json;
-                this.setState({ items });
+                this.setState({ searchResults });
                 console.log(json);
             })
     }

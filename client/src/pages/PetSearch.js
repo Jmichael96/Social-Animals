@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 import pf from "petfinder-client";
-import SearchBox from "../components/PetSearchBox/index";
-import PetResults from "../components/PetResults/index"
+import { ANIMALS } from 'petfinder-client';
+import PetInput from "../components/PetInput";
+// import PetResults from "../components/PetResults/index"
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
   secret: process.env.REACT_APP_PF_APISECRET
 });
 
-class PetSearch extends Component {
+class PetSearch extends Component { 
   constructor(props) {
     super(props);
 
     // empty array to hold pets retrieved from the petfinder api
     this.state = {
-      location: "Houston, TX",
+      location: " ",
       animal: " ",
       breed: " ",
       breeds: [],
@@ -71,14 +72,11 @@ class PetSearch extends Component {
       <div>
         <MDBContainer>
           <MDBRow>
-            <h1>Adopt Me</h1>
             <MDBCol>
-              <SearchBox />
+              <PetInput />
             </MDBCol>
-          </MDBRow>
-          <MDBRow>
-            <MDBCol>
-              <PetResults />
+            <MDBCol className="text-center">
+              <h3>Adopt Me:</h3>
             </MDBCol>
           </MDBRow>
         </MDBContainer>
