@@ -26,7 +26,7 @@ const postSchema = new Schema({
 
 // postSchema.plugin(uniqueValidator);
 // Create the model class
-const Post = mongoose.model('post', postSchema);
+const Post = mongoose.model('Post', postSchema);
 
 // Export the model
 module.exports = Post;

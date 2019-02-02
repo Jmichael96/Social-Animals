@@ -6,7 +6,7 @@ import UsersPosts from "../components/UsersPosts/index";
 class User extends Component {
 
     state = {
-        postArray: [],
+        personalArray: [],
     };
 
     componentDidMount() {
@@ -14,21 +14,19 @@ class User extends Component {
             const posts = response.data;
             for (var i = 0; i < posts.length; i++) {
                 let post = posts[i];
-                this.state.postArray.push(post);
+                this.state.personalArray.push(post);
             }
         })
-        console.log("===NEW STATE===");
         console.log(this.state);
-
     };
 
-    render(props) {
+    render() {
         return (
             <div>
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol>
-                            {this.state.postArray.map(post =>
+                            {this.state.personalArray.map(post =>
                                 <UsersPosts
                                     id={post._id}
                                     key={post._id}

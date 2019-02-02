@@ -9,14 +9,6 @@ const userSchema = new Schema({
 		_id:Schema.Types.ObjectId,
 		username: { type: String, unique: false, required: false },
 		password: { type: String, unique: false, required: false },
-		posts: [
-			{
-			  // Store ObjectIds in the array
-			  type: Schema.Types.ObjectId,
-			  // The ObjectIds will refer to the ids in the Note model
-			  ref: "Post"
-			}
-		]
 	},
 	posts: [
 			{

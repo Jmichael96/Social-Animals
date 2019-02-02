@@ -15,7 +15,10 @@ class Posts extends Component {
             for (var i = 0; i < posts.length; i++) {
                 let post = posts[i];
                 this.state.postArray.push(post);
+                console.log(posts)
             }
+            console.log('this is outside' + posts);
+            
         })
         console.log(this.state);
     };
