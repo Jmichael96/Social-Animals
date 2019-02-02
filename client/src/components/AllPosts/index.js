@@ -2,7 +2,7 @@ import React from "react";
 import { MDBMedia } from 'mdbreact';
 
 
-const PersonalPosts = (props) => {
+const AllPosts = (props) => {
     return (
         <div>
             <MDBMedia>
@@ -10,21 +10,22 @@ const PersonalPosts = (props) => {
                     <MDBMedia alt="Generic placeholder image" />
                 </MDBMedia>
                 <MDBMedia body>
+                
+                       <p> {props.authorName}</p>
+                    
                     <MDBMedia heading>
                         {props.title}
                     </MDBMedia>
                     <MDBMedia heading>
-                        {props.authorName}
-                    </MDBMedia>
-                    <MDBMedia heading>
-                        {props.date}
+                        {props.contact}
                     </MDBMedia>
                     <p>{props.content}</p>
-                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                       <p>{props.date}</p> 
+                    
                 </MDBMedia>
             </MDBMedia>
         </div>
     )
 }
 
-export default PersonalPosts;
+export default AllPosts;

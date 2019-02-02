@@ -10,6 +10,7 @@ class CreatePost extends Component{
             title: "",
             authorName: "",
             content: "",
+            contact: "",
             date: "",
             redirectTo: null
         }
@@ -28,14 +29,16 @@ class CreatePost extends Component{
             title: this.state.title,
             authorName: this.state.authorName,
             content: this.state.content,
+            contact: this.state.contact,
             date: this.state.date,
+
         })
         .then(response => {
             console.log(response)
             if (!response.data.errmsg) {
                 console.log('youre good')
                 this.setState({
-                    redirectTo: '/createpost'
+                    redirectTo: '/'
                 })
             } else {
                 console.log('duplicate');
@@ -83,6 +86,15 @@ class CreatePost extends Component{
                         />
                     </div>
                 </form>
+                <div className="form-group">
+                        <label htmlFor="contact">Contact Me</label>
+                        <input 
+                        type="text" 
+                        name="contact" 
+                        value={this.state.contact}
+                        onChange={this.handleChange}
+                        className="form-control form-control-lg" />
+                    </div>
                 <div className="form-group">
                         <label htmlFor="date">Date</label>
                         <input 

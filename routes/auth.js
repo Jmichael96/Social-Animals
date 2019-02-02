@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../db/models/User');
 const passport = require('../passport');
 const Post = require("../db/models/Post");
-
+const mongoose = require("mongoose");
 
 // router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 // router.get(
@@ -24,7 +24,7 @@ router.get('/user', (req, res, next) => {
 		return res.json({ user: null })
 	}
 })
-  
+
 router.post(
 	'/login',
 	function(req, res, next) {
@@ -64,15 +64,17 @@ router.post('/signup', (req, res) => {
 				error: `Sorry, already a user with the username: ${username}`
 			})
 		}
-		const newUser = new User({
+		const author = new User({
+			'_id': new mongoose.Types.ObjectId(),
 			'local.username': username,
 			'local.password': password
 		})
-		newUser.save((err, savedUser) => {
+		author.save((err, savedUser) => {
 			if (err) return res.json(err)
 			return res.json(savedUser)
 		})
 	})
 })
+
 
 module.exports = router

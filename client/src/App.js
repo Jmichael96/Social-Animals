@@ -7,6 +7,7 @@ import CreatePost from "./components/CreatePost/index";
 import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
+import Posts from "./pages/Posts";
 // import CreatePostPage from "./pages/CreatePostPage";
 const DisplayLinks = props => {
 
@@ -30,7 +31,7 @@ const DisplayLinks = props => {
           </Link>
           </li>
           <li>
-            <Link to="#" className="nav-link">
+            <Link to="posts" className="nav-link">
               Blogs
           </Link>
           </li>
@@ -141,6 +142,7 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
+          <Route exact path="/posts" component={Posts} />
           {/* <Route exact path="/myposts" component={MyPosts} /> */}
           {/* <Route exact path="/user" component={User} /> */}
         </div>

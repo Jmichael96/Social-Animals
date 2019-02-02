@@ -1,35 +1,32 @@
 import React, { Component } from "react";
 import { MDBCol, MDBRow, MDBContainer } from "mdbreact";
 import axios from "axios";
-import UsersPosts from "../components/UsersPosts/index";
+import AllPosts from "../components/AllPosts/index";
 
-class User extends Component {
+class Posts extends Component {
 
     state = {
         postArray: [],
     };
 
     componentDidMount() {
-        axios.get('/api/users-posts').then(response => {
+        axios.get('/api/posts').then(response => {
             const posts = response.data;
             for (var i = 0; i < posts.length; i++) {
                 let post = posts[i];
                 this.state.postArray.push(post);
             }
         })
-        console.log("===NEW STATE===");
         console.log(this.state);
-
     };
-
-    render(props) {
+    render() {
         return (
             <div>
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol>
                             {this.state.postArray.map(post =>
-                                <UsersPosts
+                                <AllPosts
                                     id={post._id}
                                     key={post._id}
                                     title={post.title}
@@ -46,4 +43,4 @@ class User extends Component {
     }
 };
 
-export default User;
+export default Posts;

@@ -5,27 +5,28 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
-	firstName: { type: String, unique: false },
-	lastName: { type: String, unique: false },
-	local: {
+	local:{
+		_id:Schema.Types.ObjectId,
 		username: { type: String, unique: false, required: false },
 		password: { type: String, unique: false, required: false },
-		posts: 
+		posts: [
 			{
 			  // Store ObjectIds in the array
 			  type: Schema.Types.ObjectId,
 			  // The ObjectIds will refer to the ids in the Note model
 			  ref: "Post"
 			}
+		]
 	},
-	posts: 
+	posts: [
 			{
 			  // Store ObjectIds in the array
 			  type: Schema.Types.ObjectId,
 			  // The ObjectIds will refer to the ids in the Note model
 			  ref: "Post"
 			}
-	
+		],
+
 })
 
 // Define schema methods
