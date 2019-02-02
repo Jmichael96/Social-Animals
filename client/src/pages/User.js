@@ -6,18 +6,20 @@ import UsersPosts from "../components/UsersPosts/index";
 class User extends Component {
 
     state = {
-        personalArray: [],
+        Posts: [
+            
+        ],
     };
 
     componentDidMount() {
         axios.get('/api/users-posts').then(response => {
-            const posts = response.data;
-            for (var i = 0; i < posts.length; i++) {
-                let post = posts[i];
-                this.state.personalArray.push(post);
-            }
+            const data = response.data[0];
+            console.log(...data.posts)
+            this.setState(this.state.Posts)
+            console.log(this.state);
+            
         })
-        console.log(this.state);
+        // console.log(this.state);
     };
 
     render() {
@@ -26,7 +28,7 @@ class User extends Component {
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol>
-                            {this.state.personalArray.map(post =>
+                            {this.state.Posts.map(post =>
                                 <UsersPosts
                                     id={post._id}
                                     key={post._id}
