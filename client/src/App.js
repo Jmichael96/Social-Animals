@@ -8,6 +8,8 @@ import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
 // import CreatePostPage from "./pages/CreatePostPage";
+// import Search from "./pages/Search";
+
 const DisplayLinks = props => {
 
   if (props.loggedIn) {
@@ -144,14 +146,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <Greeting id="greeting" user={this.state.user} />
-        <DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
+          <Greeting id="greeting" user={this.state.user} />
+          <DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
           <Route exact path="/" render={() => <Home user={this.state.user} />} />
           <Route exact path="/login" render={() => <LoginForm _login={this._login} />} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
-          {/* <Route exact path="/user" component={User} /> */}
+          {/* <Route exact path="/map" component={Search} /> */}
         </div>
       </Router>
     );
