@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginForm from "./components/Login/index";
@@ -7,6 +8,7 @@ import CreatePost from "./components/CreatePost/index";
 import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
+import Blogs from "./components/Blogs"
 // import CreatePostPage from "./pages/CreatePostPage";
 // import Search from "./pages/Search";
 
@@ -153,6 +155,7 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
+          <Route exact path="/Blogs" component={Blogs} />
           {/* <Route exact path="/map" component={Search} /> */}
         </div>
       </Router>

@@ -16,7 +16,7 @@ const LoginForm = () => {
                   <strong>Login</strong>
                 </h3>
               </div>
-              <MDBInput label="Your email" group type="text" validate />
+              <MDBInput label="Your username" group type="text" validate />
               <MDBInput label="Your password" group type="password" validate />
               <div className="md-form pb-3">
                 <div className="form-check my-4">
@@ -53,6 +53,7 @@ const LoginForm = () => {
         </MDBCol>
       </MDBRow>
     </MDBContainer>
+	
   );
 };
 

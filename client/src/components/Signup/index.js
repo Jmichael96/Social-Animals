@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import "./style.css";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 
 class SignupForm extends Component {
 	constructor() {
@@ -45,33 +46,57 @@ class SignupForm extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<div id="signup-form" className="SignupForm">
-				<h1>Signup form</h1>
-				<label htmlFor="username">Username: </label>
-				<input
-					type="text"
-					name="username"
-					value={this.state.username}
+			<MDBContainer>
+			  <MDBRow>
+				<MDBCol md="6">
+				  <form>
+					<p className="h5 text-center mb-4">Sign up</p>
+					<div className="grey-text">
+					  <MDBInput
+						label="Your name"
+						icon="user"
+						group
+						type="text"
+						validate
+						error="wrong"
+						success="right"
+						name="username"
+						value={this.state.username}
 					onChange={this.handleChange}
-				/>
-				<label htmlFor="password">Password: </label>
-				<input
-					type="password"
-					name="password"
-					value={this.state.password}
+					  />
+					  <MDBInput
+						label="Your email"
+						icon="envelope"
+						group
+						type="email"
+						validate
+						error="wrong"
+						success="right"
+						value={this.state.email}
 					onChange={this.handleChange}
-				/>
-				<label htmlFor="confirmPassword">Confirm Password: </label>
-				<input
-					type="password"
-					name="confirmPassword"
-					value={this.state.confirmPassword}
-					onChange={this.handleChange}
-				/>
-				<button onClick={this.handleSubmit}>Sign up</button>
-			</div>
-		)
-	}
-}
+					  />
+					 
+					  <MDBInput
+						label="Your password"
+						icon="lock"
+						group
+						type="password"
+						validate
+						value={this.state.password}
+						onChange={this.handleChange}
+					  />
+					</div>
+					<div className="text-center">
+					  <MDBBtn onClick = {this.handleSubmit}color="primary">Register</MDBBtn>
+					</div>
+				  </form>
+				</MDBCol>
+			  </MDBRow>
+			</MDBContainer>
+		  );
+		};
+
+};
 
 export default SignupForm;
+
