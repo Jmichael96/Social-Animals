@@ -23,7 +23,6 @@ const postSchema = new Schema({
       type: String,
     },
 });
-
 // postSchema.plugin(uniqueValidator);
 // Create the model class
 const Post = mongoose.model('Post', postSchema);

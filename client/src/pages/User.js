@@ -6,20 +6,21 @@ import UsersPosts from "../components/UsersPosts/index";
 class User extends Component {
 
     state = {
-        Posts: [
-            
+        Posts: [   
         ],
     };
 
     componentDidMount() {
         axios.get('/api/users-posts').then(response => {
             const data = response.data[0];
-            console.log(...data.posts)
-            this.setState(this.state.Posts)
+            const thingy = [...data.posts];
+            for (var i = 0; i < thingy.length; i++) {
+                let post = thingy[i];
+                this.state.Posts.push(post);
+                console.log(thingy)
+            }
             console.log(this.state);
-            
         })
-        // console.log(this.state);
     };
 
     render() {
