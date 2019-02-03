@@ -3,7 +3,7 @@ import "./style.css";
 // TODO - add proptypes
 
 const Header = props => {
-	let Greeting
+	let Greeting;
 	if (props.user === null) {
 		Greeting = <p>Hello guest</p>
 	} else if (props.user.username) {

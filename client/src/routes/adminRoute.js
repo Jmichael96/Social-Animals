@@ -1,24 +1,31 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import React from 'react';
+// import { Route, Redirect } from 'react-router-dom';
 
-const AdminRoute = ({ isAuthenticated, component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={props =>
-            isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />}
-    />
-);
+// // const AdminRoute = ({ isAuthenticated, component: Component, ...rest }) => (
+// //     <Route
+// //         {...rest}
+// //         render={props =>
+// //             isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />}
+// //     />
+// // );
+// const fakeAuthCentralState = {
+//     isAuthenticated: false,
+//     authenticate(callback) {
+//        this.isAuthenticated = true;
+//        setTimeout(callback, 300);
+//     },
+//     signout(callback) {
+//        this.isAuthenticated = false;
+//        setTimeout(callback, 300); 
+//     }
+//  };
 
-AdminRoute.propTypes = {
-    component: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired,
-};
+// const PrivateRoute = ({ component: Component, ...rest }) => (
+//     <Route {...rest} render={(props) => (
+//       fakeAuth.isAuthenticated === true
+//         ? <Component {...props} />
+//         : <Redirect to='/login' />
+//     )} />
+//   )
 
-function mapStateToProps(state) {
-    return {
-        isAuthenticated: !!state.user.token,
-    };
-}
-export default connect(mapStateToProps)(AdminRoute);
+// export default AdminRoute;

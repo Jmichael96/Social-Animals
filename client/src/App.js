@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+import Home from "./components/Home/index";
 import LoginForm from "./components/Login/index";
 import Signup from "./components/Signup/index";
 import CreatePost from "./components/CreatePost/index";
@@ -8,6 +8,9 @@ import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
 import Posts from "./pages/Posts";
+import PetSearch from "./pages/PetSearch";
+import IsAuth from "./routes/adminRoute";
+// import Data from "./components/Data/index";
 // import CreatePostPage from "./pages/CreatePostPage";
 const DisplayLinks = props => {
 
@@ -99,6 +102,7 @@ class App extends Component {
       }
     })
   }
+
   _logout(event) {
     event.preventDefault()
     console.log('logging out')
@@ -131,18 +135,20 @@ class App extends Component {
       })
   }
 
+  
   render() {
     return (
       <Router>
         <div>
         <Greeting id="greeting" user={this.state.user} />
         <DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
-          <Route exact path="/" render={() => <Home user={this.state.user} />} />
+          <Route exact path="/" render={() => <Home  user={this.state.user} />} />
           <Route exact path="/login" render={() => <LoginForm _login={this._login} />} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profile" render={() => <User user={this.state.user} />} />
+          <Route exact path="/profile" component={User} />
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/posts" component={Posts} />
+          <Route exact path="/pet" component={PetSearch} />
           {/* <Route exact path="/myposts" component={MyPosts} /> */}
           {/* <Route exact path="/user" component={User} /> */}
         </div>
