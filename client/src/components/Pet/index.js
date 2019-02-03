@@ -11,7 +11,7 @@ class Pet extends Component {
         return(
             <div className="Pet">
                 <div className="image-container">
-                    <img src={photos[0].value} alt = {name} />
+                    {/* <img src={photos[0].value} alt = {name} /> */}
                 </div>
                 <div className="info">
                     <h1>{name}</h1>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import pf from "petfinder-client";
 import { Consumer } from "../PetContext";
 import Pet from "../Pet/index";
-// import PetInput from "../PetInput";
+import PetInput from "../PetInput";
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
@@ -52,10 +52,9 @@ class Results extends Component {
         animal={Pet.animal}
         name={Pet.name}
         media={Pet.media}
-        location={`${Pet.contact.city}, ${Pet.contact.state}`}
+        // location={`${Pet.contact.state}`}
       />
-
-    );
+    )
   }
 }
 
