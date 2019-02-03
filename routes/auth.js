@@ -58,7 +58,7 @@ router.post('/logout', (req, res) => {
 router.post('/signup', (req, res) => {
 	const { username, password } = req.body
 	// ADD VALIDATION
-	User.findOne({ 'local.username': username }, (err, userMatch) => {
+	User.findOne({ 'username': username }, (err, userMatch) => {
 		if (userMatch) {
 			return res.json({
 				error: `Sorry, already a user with the username: ${username}`
@@ -66,8 +66,8 @@ router.post('/signup', (req, res) => {
 		}
 		const author = new User({
 			'_id': new mongoose.Types.ObjectId(),
-			'local.username': username,
-			'local.password': password
+			'username': username,
+			'password': password
 		})
 		author.save((err, savedUser) => {
 			if (err) return res.json(err)
