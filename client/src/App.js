@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home/index";
 import LoginForm from "./components/Login/index";
 import Signup from "./components/Signup/index";
@@ -9,7 +9,9 @@ import Greeting from "./components/Greeting/index";
 import User from "./pages/User";
 import Posts from "./pages/Posts";
 import PetSearch from "./pages/PetSearch";
-import IsAuth from "./routes/adminRoute";
+import { MDBBtn, MDBCol } from "mdbreact";
+
+
 // import Data from "./components/Data/index";
 // import CreatePostPage from "./pages/CreatePostPage";
 const DisplayLinks = props => {
@@ -17,60 +19,25 @@ const DisplayLinks = props => {
   if (props.loggedIn) {
     return (
       <nav className="navbar">
-        <ul className="nav">
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Home
-          </Link>
-          </li>
-          <li>
-            <Link to="#" className="nav-link">
-              Maps
-          </Link>
-          </li>
-          <li>
-            <Link to="/profile" className="nav-link">
-              Profile
-          </Link>
-          </li>
-          <li>
-            <Link to="posts" className="nav-link">
-              Blogs
-          </Link>
-          </li>
-          <li>
-            <Link to="/createpost" className="nav-link">
-              Create Blog
-          </Link>
-          </li>
-          <li>
-            <Link to="#" className="nav-link" onClick={props._logout}>
-              Logout
-          </Link>
-          </li>
-        </ul>
+        <Link to="/"><MDBBtn color="elegant">Home</MDBBtn></Link>
+        <Link to="#"><MDBBtn color="elegant">Maps</MDBBtn></Link>
+        <Link to="/profile"><MDBBtn color="elegant">Profile</MDBBtn></Link>
+        <Link to="/posts"><MDBBtn color="elegant">Posts</MDBBtn></Link>
+        <Link to="/createpost"><MDBBtn color="elegant">Create Post</MDBBtn></Link>
+        <Link to="#" onClick={props._logout}><MDBBtn color="elegant">Logout</MDBBtn></Link>
       </nav>
     )
   } else {
     return (
       <nav className="navbar">
-        <ul className="nav">
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Home
-          </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/login" className="nav-link">
-              login
-          </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/signup" className="nav-link">
-              sign up
-          </Link>
-          </li>
-        </ul>
+        <MDBCol md="5">
+        <Link to="/"><MDBBtn color="elegant">Home</MDBBtn></Link>
+          <Link to="/login"><MDBBtn color="elegant">Log In</MDBBtn></Link>
+          <Link to="/signup"><MDBBtn color="unique">Sign Up</MDBBtn></Link></MDBCol>
+          <MDBCol md="5">
+                <h6 lassName="">
+              This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!
+            </h6></MDBCol>
       </nav>
     )
   }
@@ -145,12 +112,10 @@ class App extends Component {
           <Route exact path="/" render={() => <Home  user={this.state.user} />} />
           <Route exact path="/login" render={() => <LoginForm _login={this._login} />} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profile" component={User} />
+          <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/pet" component={PetSearch} />
-          {/* <Route exact path="/myposts" component={MyPosts} /> */}
-          {/* <Route exact path="/user" component={User} /> */}
         </div>
       </Router>
     );

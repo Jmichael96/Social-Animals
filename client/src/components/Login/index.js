@@ -26,7 +26,7 @@ class LoginForm extends Component {
 		console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
-			redirectTo: '/'
+			redirectTo: '/profile'
 		})
 	}
 

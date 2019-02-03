@@ -5,8 +5,13 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
-		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false },
+	// avatar:{type: String, required: false},
+	// firstname:{type: String, required: false},
+	// lastname:{type: String, required:false},
+	// favoriteAnimal: {type: String, required: false},
+	// location: {type: String, required: false},
+	username: { type: String, unique: false, required: false },
+	password: { type: String, unique: false, required: false },
 	posts: [
 			{
 			  // Store ObjectIds in the array
