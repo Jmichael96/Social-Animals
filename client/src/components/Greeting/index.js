@@ -5,7 +5,7 @@ import "./style.css";
 const Header = props => {
 	let Greeting
 	if (props.user === null) {
-		Greeting = <p>Welcome Fellow Pet-Lover!!!</p>
+		Greeting = <h1>Social Animals</h1>
 	} else if (props.user.firstName) {
 		Greeting = (
 			<p id="greeting">

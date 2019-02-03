@@ -109,6 +109,7 @@ class CreatePost extends Component{
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      
         );
     }
 }
