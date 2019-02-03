@@ -1,29 +1,19 @@
 import React, { Component } from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
-import pf from "petfinder-client";
-import { ANIMALS } from 'petfinder-client';
+import { Provider } from "../components/PetContext";
 import PetInput from "../components/PetInput";
-// import PetResults from "../components/PetResults/index"
+import PetResults from "../components/PetResults";
 
-const petfinder = pf({
-  key: process.env.REACT_APP_PF_APIKEY,
-  secret: process.env.REACT_APP_PF_APISECRET
-});
-
-class PetSearch extends Component { 
+class PetSearch extends Component {
   constructor(props) {
     super(props);
 
-    // empty array to hold pets retrieved from the petfinder api
     this.state = {
-      location: " ",
-      animal: " ",
-      breed: " ",
-      breeds: [],
-      handleLocationChange: this.handleLocationChange,
+      location: "77063",
+      animal: "",
+      pets: [],
       handleAnimalChange: this.handleAnimalChange,
-      handleBreedChange: this.handleBreedChange,
-      getBreeds: this.getBreeds
+      handleLocationChange: this.handleLocationChange
     };
   }
 
@@ -31,55 +21,33 @@ class PetSearch extends Component {
     this.setState({
       location: event.target.value
     })
-  }
-
-  handleAnimalChange = (event) => {
-    this.setState(
-      {
-        animal: event.target.value,
-        breed: " ",
-      },
-      this.getBreeds
-    );
   };
-
-  handleBreedChange = (event) => {
+  
+  handleAnimalChange = (event) => {
     this.setState({
-      breed: event.target.value
+      animal: event.target.value
     });
   };
-
-  getBreeds() {
-    if (this.state.animal) {
-      petfinder.breed.list({ animal: this.state.animal }).then(data => {
-        if (
-          data.petfinder &&
-          data.petfinder.breeds &&
-          Array.isArray(data.petfinder.breeds.breed)
-        ) {
-          this.setState({
-            breeds: data.petfinder.breeds.breed
-          });
-        } else {
-          this.setState({ breeds: [] });
-        }
-      })
-    }
-  }
-
+  
   render() {
     return (
       <div>
+        <Provider value={this.state}>
         <MDBContainer>
           <MDBRow>
-            <MDBCol>
+            <MDBCol className="text-center">
+              <h3>Search for adoptions in your area</h3>
               <PetInput />
             </MDBCol>
+          </MDBRow>
+          <MDBRow>
             <MDBCol className="text-center">
-              <h3>Adopt Me:</h3>
+              <h3>Available Pets:</h3>
+              <PetResults />
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+        </Provider>
       </div>
     )
   }

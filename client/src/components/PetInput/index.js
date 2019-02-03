@@ -1,53 +1,70 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBRow, MDBBtn } from "mdbreact";
-import pf from "petfinder-client";
-
-const petfinder = pf({
-  key: process.env.REACT_APP_PF_APIKEY,
-  secret: process.env.REACT_APP_PF_APISECRET
-});
+import { ANIMALS } from "petfinder-client";
+import { Consumer } from "../PetContext/index";
 
 class PetInput extends Component {
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    this.props.search();
+    this.getPets();
   };
 
   render() {
     return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol md="6">
-            <form>
-              <h3 className="h3 text-center">Find An Animal</h3>
-              <div className="grey-text">
-                <MDBInput
-                  label="Animal"
-                  group
-                  type="password"
-                  validate
-                />
-                <MDBInput
-                  label="Breed (optional)"
-                  group
-                  type="text"
-                  validate
-                />
-                <MDBInput
-                  label="Location"
-                  group
-                  type="text"
-                  validate
-                />
-              </div>
-              <div className="text-center">
-                <MDBBtn>Search</MDBBtn>
-              </div>
-            </form>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <Consumer>
+        {context => (
+          <MDBContainer>
+            <MDBRow>
+              <MDBCol>
+                <div>
+                  <label htmlFor="animal">
+                    Choose an animal
+                <select
+                      className="browser-default custom-select"
+                      onChange={context.handleAnimalChange}
+                      value={context.animal}
+                    >
+                      <option />
+                      {ANIMALS.map(animal => (
+                        <option value={animal} key={animal}>
+                          {animal}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+              {/* </MDBCol>
+              <MDBCol> */}
+                <div className="form-group">
+                  <label htmlFor="zipcode">
+                    Enter zipcode
+                <input
+                      type="text"
+                      className="form-control"
+                      id="zipCodInput"
+                      onChange={context.handleLocationChange}
+                      value={context.location}
+                    />
+                  </label>
+                </div>
+              {/* </MDBCol>
+              <MDBCol> */}
+                <MDBBtn
+                  color="unique"
+                  type="submit"
+                  onClick={this.handleFormSubmit}
+                >
+                  Find pets!
+                 </MDBBtn>
+              </MDBCol>
+            </MDBRow>
+            {/* <MDBRow> */}
+            {/* </MDBRow> */}
+
+          </MDBContainer>
+        )}
+      </Consumer>
     )
   }
 };

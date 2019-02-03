@@ -2,8 +2,9 @@ import React, {Component} from "react";
 
 class Pet extends Component {
     render() {
-        const {name, animal, breed, media, location, id} = this.props;
+        const {name, animal, media, location, id} = this.props;
         let photos = [];
+        
         if (media && media.photos && media.photos.photo) {
             photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
         }
@@ -14,7 +15,7 @@ class Pet extends Component {
                 </div>
                 <div className="info">
                     <h1>{name}</h1>
-                    <h2>{`${animal} - ${breed} - ${location} - ${id}`}</h2>
+                    <h2>{`${animal} - ${location} - ${id}`}</h2>
                 </div>
             </div>
         );

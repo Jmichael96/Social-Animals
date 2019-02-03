@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import pf from "petfinder-client";
-// import { Consumer } from '../SearchContext';
+import { Consumer } from "../PetContext";
 import Pet from "../Pet/index";
-import PetSearchBox from "../PetSearchBox/index";
+// import PetInput from "../PetInput";
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
@@ -17,6 +17,7 @@ class Results extends Component {
       pets: []
     };
   }
+
   componentDidMount() {
     this.search();
   }
@@ -24,10 +25,9 @@ class Results extends Component {
   search = () => {
     petfinder.pet
       .find({
-        output: 'full',
+        output: "full",
         location: this.props.searchParams.location,
         animal: this.props.searchParams.animal,
-        breed: this.props.searchParams.breed
       })
       .then(data => {
         let pets;
@@ -43,32 +43,26 @@ class Results extends Component {
         this.setState({ pets });
       });
   }
+
   render() {
     return (
-      <div className="search">
-        <PetSearchBox search={this.search} />
-        {this.state.pets.map(pet => {
-          let breed;
-          if (Array.isArray(pet.breeds.breed)) {
-            breed = pet.breeds.breed.join(', ');
-          } else {
-            breed = pet.breeds.breed;
-          }
-          return (
-            <Pet
-              key={pet.id}
-              id={pet.id}
-              animal={pet.animal}
-              name={pet.name}
-              breed={breed}
-              media={pet.media}
-              location={`${pet.contact.city}, ${pet.contact.state}`}
-            />
-          );
-        })}
-      </div>
+      <Pet
+        key={Pet.id}
+        id={Pet.id}
+        animal={Pet.animal}
+        name={Pet.name}
+        media={Pet.media}
+        location={`${Pet.contact.city}, ${Pet.contact.state}`}
+      />
+
     );
   }
 }
 
-export default Results;
+export default function ResultsWithContext(props) {
+  return (
+    <Consumer>
+      {context => <Results {...props} searchParams={context} />}
+    </Consumer>
+  );
+};
