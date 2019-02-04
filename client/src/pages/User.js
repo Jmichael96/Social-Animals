@@ -2,7 +2,7 @@ import React from "react";
 import { MDBContainer } from "mdbreact";
 import Posts from "../components/Profile/index";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse,
+  MDBNavbar, MDBNavbarBrand, MDBCollapse,
 } from "mdbreact";
 import "./styles/user.css";
 

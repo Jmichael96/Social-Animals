@@ -4,7 +4,6 @@ if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config()
 }
 require('dotenv').config()
-
 const express = require('express')
 const bodyParser = require('body-parser')
 // const routes = require("./routes/apiRoutes");
@@ -37,6 +36,7 @@ app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
 app.use("/api", require("./routes")); 
+  
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -44,7 +44,6 @@ app.use(function(err, req, res, next) {
 	console.error(err.stack)
 	res.status(500)
 })
-// app.use(routes);
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
