@@ -1,7 +1,7 @@
 import React from "react";
-import { MDBMask, MDBRow, MDBCol, MDBContainer } from "mdbreact";
 import "./style.css";
 import Carousel from "../Carousel/index";
+import Footer from "../Footer/index";
 const Home = (props) => {
     let Greeting;
     if (props.user === null) {
@@ -12,17 +12,7 @@ const Home = (props) => {
                 </p>
                 <Carousel />
 
-                <MDBContainer>
-                    <MDBRow className="py-5">
-                        <MDBCol md="12" className="text-center">
-                            <p>
-                                GitHub Repo:https://github.com/rchlblns
-                                Portfolio:
-                                LinkedIn:
-                            </p>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
+                <Footer />
             </div>)
     } else if (props.user.username) {
         Greeting = (
@@ -32,17 +22,7 @@ const Home = (props) => {
                 </p>
                 <Carousel />
 
-                <MDBContainer>
-                    <MDBRow className="py-5">
-                        <MDBCol md="12" className="text-center">
-                            <p>
-                                GitHub Repo:https://github.com/rchlblns
-                                Portfolio:
-                                LinkedIn:
-                            </p>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
+                <Footer />
             </div>)
     }
     return (
