@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { MDBCol, MDBRow, MDBContainer } from "mdbreact";
 import axios from "axios";
 import AllPosts from "../components/AllPosts/index";
-
+import "./styles/posts.css";
 class Posts extends Component {
 
     state = {
@@ -26,6 +26,9 @@ class Posts extends Component {
         return (
             <div>
                 <MDBContainer>
+                <p id="posts-title" className="h1-responsive font-weight-bold text-center">
+          Most Recent posts!
+        </p>
                     <MDBRow>
                         <MDBCol>
                             {this.state.postArray.map(post =>

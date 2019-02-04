@@ -6,3 +6,10 @@
     border-radius: 5px;
     box-shadow: 0 5px 15px black;
 }
+/* submit button style */
+.pink{
+    box-shadow: 0 2px 8px black;
+}
+.pink:hover{
+    box-shadow: 0 7px 15px black;
+}

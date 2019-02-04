@@ -10,7 +10,7 @@ import User from "./pages/User";
 import Posts from "./pages/Posts";
 import PetSearch from "./pages/PetSearch";
 import { MDBBtn, MDBCol } from "mdbreact";
-
+import "./app.css";
 
 // import Data from "./components/Data/index";
 // import CreatePostPage from "./pages/CreatePostPage";
@@ -18,22 +18,21 @@ const DisplayLinks = props => {
 
   if (props.loggedIn) {
     return (
-      <nav className="navbar">
-        <Link to="/"><MDBBtn color="elegant">Home</MDBBtn></Link>
-        <Link to="#"><MDBBtn color="elegant">Maps</MDBBtn></Link>
-        <Link to="/profile"><MDBBtn color="elegant">Profile</MDBBtn></Link>
-        <Link to="/posts"><MDBBtn color="elegant">Posts</MDBBtn></Link>
-        <Link to="/createpost"><MDBBtn color="elegant">Create Post</MDBBtn></Link>
-        <Link to="#" onClick={props._logout}><MDBBtn color="elegant">Logout</MDBBtn></Link>
+      <nav id="main-nav" className="navbar">
+        <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
+        <Link to="/profile"><MDBBtn className="pink darken-4">Profile</MDBBtn></Link>
+        <Link to="/posts"><MDBBtn className="pink darken-4">Posts</MDBBtn></Link>
+        <Link to="/createpost"><MDBBtn className="pink darken-4">Create Post</MDBBtn></Link>
+        <Link to="#" onClick={props._logout}><MDBBtn className="logout" color="elegant">Logout</MDBBtn></Link>
       </nav>
     )
   } else {
     return (
-      <nav className="navbar">
+      <nav id="main-nav" className="navbar">
         <MDBCol md="5">
-        <Link to="/"><MDBBtn color="elegant">Home</MDBBtn></Link>
-          <Link to="/login"><MDBBtn color="elegant">Log In</MDBBtn></Link>
-          <Link to="/signup"><MDBBtn color="unique">Sign Up</MDBBtn></Link></MDBCol>
+        <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
+          <Link to="/login"><MDBBtn className="pink darken-4">Log In</MDBBtn></Link>
+          <Link to="/signup"><MDBBtn className="pink lighten-4">Sign Up</MDBBtn></Link></MDBCol>
           <MDBCol md="5">
                 <h6 lassName="">
               This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!

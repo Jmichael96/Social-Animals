@@ -3,7 +3,7 @@ import { MDBRow, MDBCol, MDBFooter, MDBContainer } from "mdbreact";
 import "./style.css";
 const Footer = () => {
     return (
-        <MDBFooter color="grey darken-3" className="font-small pt-4 mt-4">
+        <MDBFooter  className="pink darken-4 font-small pt-4 mt-4">
             <MDBContainer fluid className="text-center text-md-left">
                 <MDBRow>
                     <MDBCol md="3" className="text-center">
@@ -15,8 +15,8 @@ const Footer = () => {
                     <MDBCol md="3">
                         <ul className="text-center">
                         <h5 className="title">Github</h5>
-                            <li  className="list-unstyled">
-                                <a id="list-unstyled" href="https://github.com/rchlblns" target="_blank">Richelle Billones</a>
+                            <li  className="list-unstyled ">
+                                <a id="list-unstyled" color="elegant" href="https://github.com/rchlblns" target="_blank">Richelle Billones</a>
                             </li>
                             <li className="list-unstyled">
                                 <a id="list-unstyled" href="https://github.com/Jmichael96" target="_blank">Jeffrey VanHorn</a>

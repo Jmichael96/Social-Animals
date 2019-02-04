@@ -111,7 +111,7 @@ class CreatePost extends Component {
                         />
                     </form>
                     <Fragment>
-                        <MDBBtn onClick={this.handleSubmit} color="default">
+                        <MDBBtn onClick={this.handleSubmit} className="pink darken-4">
                             POST <MDBIcon far icon="paper-plane" />
                         </MDBBtn>
                     </Fragment>

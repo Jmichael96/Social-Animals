@@ -1,3 +1,10 @@
 #login-form{
-    margin-top: 200px;
+    margin-top: 25px;
+    box-shadow: 0 4px 18px black;
+}
+#loginbtn{
+    box-shadow: 0 2px 8px black;
+}
+#loginbtn:hover{
+    box-shadow: 0 7px 18px black;
 }

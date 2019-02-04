@@ -1,5 +1,17 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import {
+	MDBContainer,
+	MDBRow,
+	MDBCol,
+	MDBCard,
+	MDBCardBody,
+	MDBModalFooter,
+	MDBIcon,
+	MDBCardHeader,
+	MDBBtn,
+	MDBInput
+} from "mdbreact";
 import "./style.css";
 
 class LoginForm extends Component {
@@ -26,7 +38,7 @@ class LoginForm extends Component {
 		console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
-			redirectTo: '/profile'
+			redirectTo: '/'
 		})
 	}
 
@@ -35,26 +47,67 @@ class LoginForm extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div id="login-form" className="LoginForm">
-					<h1>Login form</h1>
-					<form>
-						<label htmlFor="username">Username: </label>
-						<input
-							type="text"
-							name="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-						<label htmlFor="password">Password: </label>
-						<input
-							type="password"
-							name="password"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-						<button onClick={this.handleSubmit}>Login</button>
-					</form>
+				<div className="LoginForm">
+					<MDBContainer>
+						<MDBRow>
+							<MDBCol md="3"></MDBCol>
+							<MDBCol md="5">
+								<MDBCard id="login-form">
+									<MDBCardBody>
+										<MDBCardHeader className="form-header pink lighten-4 rounded">
+											<h3 className="my-3 text-center">
+												<MDBIcon icon="lock" /> Login
+                							</h3>
+										</MDBCardHeader>
+										<form>
+											<div className="grey-text">
+												<MDBInput
+													label="Type Your Username"
+													icon="user-alt"
+													name="username"
+													value={this.state.username}
+													onChange={this.handleChange}
+													group
+													type="text"
+													validate
+													error="wrong"
+													success="right"
+												/>
+												<MDBInput
+													label="Type your password"
+													icon="lock"
+													group
+													type="password"
+													name="password"
+													value={this.state.password}
+													onChange={this.handleChange}
+													validate
+												/>
+											</div>
 
+											<div className="text-center mt-4">
+												<MDBBtn
+												id="loginbtn"
+													onClick={this.handleSubmit}
+													color="light-blue"
+													className="mb-3"
+													type="submit"
+												>
+													Login
+                								</MDBBtn>
+											</div>
+										</form>
+										<MDBModalFooter>
+											<div className="font-weight-light">
+												<Link to="/signup"><p>Not a member? Sign Up</p></Link>
+											</div>
+										</MDBModalFooter>
+									</MDBCardBody>
+								</MDBCard>
+							</MDBCol>
+							<MDBCol md="3"></MDBCol>
+						</MDBRow>
+					</MDBContainer>
 				</div>
 			)
 		}

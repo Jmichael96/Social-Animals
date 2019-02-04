@@ -66,6 +66,10 @@ router.post('/signup', (req, res) => {
 		}
 		const author = new User({
 			'_id': new mongoose.Types.ObjectId(),
+			'avatar': avatar,
+			'firstname': firstname,
+			'lastname': lastname,
+			'favoriteAnimal': favoriteAnimal,
 			'username': username,
 			'password': password
 		})
