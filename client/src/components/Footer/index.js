@@ -16,13 +16,13 @@ const Footer = () => {
                         <ul className="text-center">
                         <h5 className="title">Github</h5>
                             <li  className="list-unstyled ">
-                                <a id="list-unstyled" color="elegant" href="https://github.com/rchlblns" target="_blank">Richelle Billones</a>
+                                <a id="list-unstyled" color="elegant" href="https://github.com/rchlblns" target="_blank" rel="noopener noreferrer">Richelle Billones</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://github.com/Jmichael96" target="_blank">Jeffrey VanHorn</a>
+                                <a id="list-unstyled" href="https://github.com/Jmichael96" target="_blank" rel="noopener noreferrer">Jeffrey VanHorn</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://github.com/joshehenry" target="_blank">Joshua Henry</a>
+                                <a id="list-unstyled" href="https://github.com/joshehenry" target="_blank" rel="noopener noreferrer">Joshua Henry</a>
                             </li>
 
                         </ul>
@@ -31,13 +31,13 @@ const Footer = () => {
                         <ul className="text-center">
                         <h5 className="title">Personal Portfolios</h5>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://rchlblns.github.io/current-portfolio/" target="_blank">Richelle Billones</a>
+                                <a id="list-unstyled" href="https://rchlblns.github.io/current-portfolio/" target="_blank" rel="noopener noreferrer">Richelle Billones</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://jvh-portfolio-96.herokuapp.com/" target="_blank">Jeffrey VanHorn</a>
+                                <a id="list-unstyled" href="https://jvh-portfolio-96.herokuapp.com/" target="_blank" rel="noopener noreferrer">Jeffrey VanHorn</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://joshehenry.github.io/Bootstrap-Portfolio/" target="_blank">Joshua Henry</a>
+                                <a id="list-unstyled" href="https://joshehenry.github.io/Bootstrap-Portfolio/" target="_blank" rel="noopener noreferrer">Joshua Henry</a>
                             </li>
 
                         </ul>
@@ -46,13 +46,13 @@ const Footer = () => {
                         <ul className="text-center">
                         <h5 className="title">LinkedIn</h5>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://www.linkedin.com/in/richellebillones/" target="_blank">Richelle Billones</a>
+                                <a id="list-unstyled" href="https://www.linkedin.com/in/richellebillones/" target="_blank" rel="noopener noreferrer">Richelle Billones</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="HTTPS://WWW.LINKEDIN.COM/IN/JEFFREY-VHMICHAEL/" target="_blank">Jeffrey VanHorn</a>
+                                <a id="list-unstyled" href="HTTPS://WWW.LINKEDIN.COM/IN/JEFFREY-VHMICHAEL/" target="_blank" rel="noopener noreferrer">Jeffrey VanHorn</a>
                             </li>
                             <li className="list-unstyled">
-                                <a id="list-unstyled" href="https://www.linkedin.com/in/joshua-henry-a5aa1a55//" target="_blank">Joshua Henry</a>
+                                <a id="list-unstyled" href="https://www.linkedin.com/in/joshua-henry-a5aa1a55//" target="_blank" rel="noopener noreferrer">Joshua Henry</a>
                             </li>
                         </ul>
                     </MDBCol>

@@ -5,7 +5,6 @@ const PetContext = React.createContext({
   animal: " ",
   handleLocationChange() {},
   handleAnimalChange() {},
-  getPets() {}
 });
 
 export const Provider = PetContext.Provider;

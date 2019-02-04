@@ -25,6 +25,7 @@ const DisplayLinks = props => {
         <Link to="/profile"><MDBBtn className="pink darken-4">Profile</MDBBtn></Link>
         <Link to="/posts"><MDBBtn className="pink darken-4">Posts</MDBBtn></Link>
         <Link to="/createpost"><MDBBtn className="pink darken-4">Create Post</MDBBtn></Link>
+        <Link to="/pet"><MDBBtn className="pink darken-4">Pet Search</MDBBtn></Link>
         <Link to="#" onClick={props._logout}><MDBBtn className="logout" color="elegant">Logout</MDBBtn></Link>
       </nav>
     )
@@ -34,9 +35,9 @@ const DisplayLinks = props => {
         <MDBCol md="5">
           <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
           <Link to="/login"><MDBBtn className="pink darken-4">Log In</MDBBtn></Link>
-          <Link to="/signup"><MDBBtn className="pink lighten-4">Sign Up</MDBBtn></Link></MDBCol>
+          <Link to="/signup"><MDBBtn color="elegant">Sign Up</MDBBtn></Link></MDBCol>
         <MDBCol md="5">
-          <h6 lassName="">
+          <h6>
             This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!
             </h6></MDBCol>
       </nav>
@@ -117,8 +118,7 @@ class App extends Component {
           <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/posts" component={Posts} />
-          <Route exact path="/pet" component={PetSearch} />
-          <Route exact path="/image" component={Image} />
+          <Route exact path="/pet" component={PetSearch} user={this.state.user} />
         </div>
       </Router>
     );

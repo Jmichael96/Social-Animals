@@ -69,7 +69,8 @@ router.get("/users-posts", function(req, res) {
   cloudinary.config({ 
 	cloud_name: process.env.CLOUD_NAME, 
 	api_key: process.env.API_KEY, 
-	api_secret: process.env.API_SECRET
+    api_secret: process.env.API_SECRET,
+    URL: process.env.URL,
   })
 	
 //   router.use(cors({ 

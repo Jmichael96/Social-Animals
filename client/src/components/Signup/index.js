@@ -106,7 +106,7 @@ class SignupForm extends Component {
 												value={this.state.firstname}
 												onChange={this.handleChange}
 												group
-												type="text"
+
 												validate
 												error="wrong"
 												success="right"
@@ -114,7 +114,7 @@ class SignupForm extends Component {
 											<MDBInput
 												label="Last Name"
 												icon="user-alt"
-												type="text"
+
 												name="lastname"
 												value={this.state.lastname}
 												onChange={this.handleChange}
@@ -127,7 +127,7 @@ class SignupForm extends Component {
 											<MDBInput
 												label="Favorite Animal"
 												icon="user-alt"
-												type="text"
+
 												name="favoriteAnimal"
 												value={this.state.favoriteAnimal}
 												onChange={this.handleChange}
@@ -140,7 +140,7 @@ class SignupForm extends Component {
 											<MDBInput
 												label="Type Your Username"
 												icon="user-alt"
-												type="text"
+
 												name="username"
 												value={this.state.username}
 												onChange={this.handleChange}
@@ -171,7 +171,6 @@ class SignupForm extends Component {
 												validate
 											/>
 										</div>
-
 										<div className="text-center mt-4">
 											<MDBBtn
 												id="signupbtn"
@@ -195,9 +194,9 @@ class SignupForm extends Component {
 						<MDBCol md="3"></MDBCol>
 					</MDBRow>
 				</MDBContainer>
-				</div>
-				)
-			}
-		}
-		
+			</div>
+		)
+	}
+}
+
 export default SignupForm;
