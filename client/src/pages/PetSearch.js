@@ -70,7 +70,7 @@ class PetSearch extends Component {
           <MDBContainer>
             <MDBRow>
               <MDBCol className="text-center">
-                <h3>Search for adoptions in your area</h3>
+                <h3>Search for adoptable pets in your area</h3>
                 <PetInput 
                 handleAnimalChange={this.handleAnimalChange}
                 handleLocationChange={this.handleLocationChange}
