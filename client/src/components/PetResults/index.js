@@ -1,7 +1,53 @@
 import React, { Component } from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
-// import Pet from "../Pet/index";
+import Pet from "../Pet/index";
 // import petfinderClient from "petfinder-client";
+import axios from "axios";
+
+
+// class PetResults extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       pets: []
+//     }
+//   }
+
+//   componentDidMount() {
+//     this.search();
+//   }
+
+//   search = () => {
+//     axios.get(`http://api.petfinder.com/pet.find?key=${process.env.REACT_APP_PF_APIKEY}&animal=${this.state.animal}&location=${this.state.location}&output=full&format=json&callback=?`)
+//       .then(data => {
+//         // console.log(data)
+//         // this.setState({ pet: data.petfinder.pets.pet })
+//         let pets;
+//         if (data.petfinder.pets && data.petfinder.pets.pet) {
+//           if (Array.isArray(data.petfinder.pets.pet)) {
+//             pets = data.petfinder.pets.pet;
+//           } else {
+//             pets = [data.petfinder.pets.pet];
+//           }
+//         } else {
+//           pets = [];
+//         }
+//         this.setState({ pets });
+//       });
+//   }
+//   render() {
+//     return (
+//       this.state.pets.map(pet =>
+//         <div className="info">
+//           <h1>{pet.name}</h1>
+//           <h2>{`${pet.animal} - ${pet.location} - ${pet.id}`}</h2>
+//         </div>
+//       )
+//     )
+//   }
+// }
+
 
 export function PetList({ children }) {
   return <ul className="list-group">{children}</ul>;
@@ -10,7 +56,7 @@ export function PetList({ children }) {
 export function PetListItem({
   name,
   animal,
-  media,
+  // media,
   location,
   contact
 }) {
@@ -24,8 +70,14 @@ export function PetListItem({
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    
-    
+
+
     </li>
   )
 }
+
+// export default function Results(props) {
+//   return (
+//     <PetResults {...props} />
+//   )
+// };

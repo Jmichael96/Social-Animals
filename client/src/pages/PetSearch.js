@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
-// import { Provider } from "../components/PetContext";
 import PetInput from "../components/PetInput";
 import {PetList, PetListItem} from "../components/PetResults";
+// import PetResults from "../components/PetResults";
 import pf from "petfinder-client";
+// import axios from "axios"
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
@@ -12,11 +13,17 @@ const petfinder = pf({
 
 class PetSearch extends Component {
 
-  state = {
-    location: "",
-    animal: "",
-    pets: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location: "",
+      animal: "",
+      pets: [],
+      // handleAnimalChange: this.handleAnimalChange,
+      // handleLocationChange: this.handleLocationChange
+    };
+  }
 
   handleLocationChange = (event) => {
     this.setState({
@@ -32,26 +39,34 @@ class PetSearch extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    this.search()
+  }
+  search = () => {
+    // axios.get(`http://api.petfinder.com/pet.find?key=${process.env.REACT_APP_PF_APIKEY}&animal=${this.state.animal}&location=${this.state.location}&output=basic&format=json&callback=?`)
+    // .then(data => {
+    //   console.log(data)
+    //   this.setState({ pet: data.petfinder.pets.pet })
+    // })
+
     petfinder.pet
       .find({
-        output: "full",
-        location: this.state.location,
-        animal: this.state.animal,
+        output: 'full',
+        location: this.props.location,
+        animal: this.props.animal,
       })
-      .then(res => this.setState({ pets: res.data}))
-      // {
-        // let pets;
-        // if (data.petfinder.pets && data.petfinder.pets.pet) {
-        //   if (Array.isArray(data.petfinder.pets.pet)) {
-        //     pets = data.petfinder.pets.pet;
-        //   } else {
-        //     pets = [data.petfinder.pets.pet];
-        //   }
-        // } else {
-        //   pets = [];
-        // }
-        // this.setState({ pets });
-      // });
+      .then(data => {
+        let pets;
+        if (data.petfinder.pets && data.petfinder.pets.pet) {
+          if (Array.isArray(data.petfinder.pets.pet)) {
+            pets = data.petfinder.pets.pet;
+          } else {
+            pets = [data.petfinder.pets.pet];
+          }
+        } else {
+          pets = [];
+        }
+        this.setState({ pets });
+      });
   };
 
   render() {
@@ -65,16 +80,17 @@ class PetSearch extends Component {
                 <PetInput 
                 handleAnimalChange={this.handleAnimalChange}
                 handleLocationChange={this.handleLocationChange}
-                handleFormSubmit={this.handleFormSubmit}/>
+                handleFormSubmit={this.handleFormSubmit}
+                />
               </MDBCol>
             </MDBRow>
-            <MDBBtn
+            {/* <MDBBtn
             onClick={this.handleFormSubmit}
             color="unique"
             type="submit"
           >
             Find pets!
-            </MDBBtn>
+            </MDBBtn> */}
             <MDBRow>
               <MDBCol className="text-center">
                 <h3>Available Pets:</h3>

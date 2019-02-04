@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginForm from "./components/Login/index";
@@ -156,13 +155,10 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" render={() => <User user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
-<<<<<<< HEAD
           <Route exact path="/pet" component={PetSearch} />
           {/* <Route exact path="/map" component={MapSearch} /> */}
-=======
           <Route exact path="/Blogs" component={Blogs} />
           {/* <Route exact path="/map" component={Search} /> */}
->>>>>>> master
         </div>
       </Router>
     );
