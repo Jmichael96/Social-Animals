@@ -26,6 +26,20 @@ router.post("/create-post", (req, res) => {
         });
 });
 
+router.get("/user-profile", (req, res) =>{
+    if(req.user){
+        User.find({_id: req.user._id})
+        .then((dbUser) =>{
+            res.json(dbUser);
+        })
+        .catch((err) =>{
+            res.json(err);
+        })
+    }else{
+        res.json(null);
+    };
+});
+
 router.get("/users-posts", function(req, res) {
     if(req.user){
     User.find({_id: req.user._id})

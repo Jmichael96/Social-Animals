@@ -18,7 +18,7 @@ class Posts extends Component {
                 console.log(posts)
             }
             console.log('this is outside' + posts);
-            
+
         })
         console.log(this.state);
     };
@@ -26,9 +26,9 @@ class Posts extends Component {
         return (
             <div>
                 <MDBContainer>
-                <p id="posts-title" className="h1-responsive font-weight-bold text-center">
-          Most Recent posts!
-        </p>
+                    <p id="posts-title" className="h1-responsive font-weight-bold text-center">
+                        Most Recent posts!
+                    </p>
                     <MDBRow>
                         <MDBCol>
                             {this.state.postArray.map(post =>

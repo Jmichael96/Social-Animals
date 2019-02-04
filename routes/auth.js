@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const User = require('../db/models/User');
 const passport = require('../passport');
-const Post = require("../db/models/Post");
 const mongoose = require("mongoose");
 
 // router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
@@ -17,7 +16,7 @@ const mongoose = require("mongoose");
 // this route is just used to get the user basic info
 router.get('/user', (req, res, next) => {
 	console.log('===== user!!======')
-	console.log(req.user)
+	console.log(req.body.user)
 	if (req.user) {
 		return res.json({ user: req.user })
 	} else {
@@ -56,7 +55,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-	const { username, password } = req.body
+	const { avatar, firstname, lastname, favoriteAnimal, username, password } = req.body
 	// ADD VALIDATION
 	User.findOne({ 'username': username }, (err, userMatch) => {
 		if (userMatch) {
