@@ -3,21 +3,8 @@ import { MDBContainer, MDBCol, MDBInput, MDBRow, MDBBtn } from "mdbreact";
 import { ANIMALS } from "petfinder-client";
 import axios from "axios";
 
-class PetInput extends Component {
+function PetInput (props) {
 
-  // handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.search()
-  // }
-  // search = () => {
-  //   axios.get(`http://api.petfinder.com/pet.find?key=${process.env.REACT_APP_PF_APIKEY}&animal=${this.animal}&location=${this.location}&output=basic&format=json&callback=?`)
-  //   .then(data => {
-  //     console.log(data)
-  //     this.setState({ pet: data.petfinder.pets.pet })
-  //   })
-  // }
-
-  render() {
     return (
       <MDBContainer>
         <MDBRow>
@@ -30,8 +17,8 @@ class PetInput extends Component {
                 <label htmlFor="animal">
                   Choose an animal
                     <select
-                    value={this.animal}
-                    onChange={this.handleAnimalChange}
+                    value={props.animal}
+                    onChange={props.handleAnimalChange}
                     className="browser-default custom-select"
                   >
                     <option />
@@ -47,8 +34,8 @@ class PetInput extends Component {
                 <label htmlFor="zipcode">
                   Enter zipcode
                   <input
-                    value={this.location}
-                    onChange={this.handleLocationChange}
+                    value={props.location}
+                    onChange={props.handleLocationChange}
                     type="text"
                     className="form-control"
                     id="zipCodeInput"
@@ -57,7 +44,7 @@ class PetInput extends Component {
               </div>
             </form>
             <MDBBtn
-              onClick={this.handleFormSubmit}
+              onClick={props.handleFormSubmit}
               color="unique"
               type="submit"
             >
@@ -67,7 +54,6 @@ class PetInput extends Component {
         </MDBRow>
       </MDBContainer>
     )
-  }
 };
 
 export default PetInput;

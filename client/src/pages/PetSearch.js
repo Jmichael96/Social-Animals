@@ -4,7 +4,7 @@ import PetInput from "../components/PetInput";
 import {PetList, PetListItem} from "../components/PetResults";
 // import PetResults from "../components/PetResults";
 import pf from "petfinder-client";
-// import axios from "axios"
+
 
 const petfinder = pf({
   key: process.env.REACT_APP_PF_APIKEY,
@@ -37,37 +37,31 @@ class PetSearch extends Component {
     });
   };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    this.search()
-  }
-  search = () => {
-    // axios.get(`http://api.petfinder.com/pet.find?key=${process.env.REACT_APP_PF_APIKEY}&animal=${this.state.animal}&location=${this.state.location}&output=basic&format=json&callback=?`)
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({ pet: data.petfinder.pets.pet })
-    // })
-
-    petfinder.pet
-      .find({
-        output: 'full',
-        location: this.props.location,
-        animal: this.props.animal,
-      })
-      .then(data => {
-        let pets;
-        if (data.petfinder.pets && data.petfinder.pets.pet) {
-          if (Array.isArray(data.petfinder.pets.pet)) {
-            pets = data.petfinder.pets.pet;
-          } else {
-            pets = [data.petfinder.pets.pet];
-          }
-        } else {
-          pets = [];
-        }
-        this.setState({ pets });
-      });
-  };
+  // handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   this.search()
+  // }
+  // search = () => {
+  //   petfinder.pet
+  //     .find({
+  //       output: 'full',
+  //       location: this.props.location,
+  //       animal: this.props.animal,
+  //     })
+  //     .then(data => {
+  //       let pets;
+  //       if (data.petfinder.pets && data.petfinder.pets.pet) {
+  //         if (Array.isArray(data.petfinder.pets.pet)) {
+  //           pets = data.petfinder.pets.pet;
+  //         } else {
+  //           pets = [data.petfinder.pets.pet];
+  //         }
+  //       } else {
+  //         pets = [];
+  //       }
+  //       this.setState({ pets });
+  //     });
+  // };
 
   render() {
     return (
