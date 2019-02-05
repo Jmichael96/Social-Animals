@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
-import PetInput from "../components/PetInput";
 import {PetList, PetListItem} from "../components/PetResults";
+import { ANIMALS } from "petfinder-client";
 // import PetResults from "../components/PetResults";
 import pf from "petfinder-client";
 
@@ -67,24 +67,46 @@ class PetSearch extends Component {
     return (
       <div>
         {/* <Provider value={this.state}> */}
-          <MDBContainer>
-            <MDBRow>
-              <MDBCol className="text-center">
-                <h3>Search for adoptable pets in your area</h3>
-                <PetInput 
-                handleAnimalChange={this.handleAnimalChange}
-                handleLocationChange={this.handleLocationChange}
-                handleFormSubmit={this.handleFormSubmit}
-                />
-              </MDBCol>
-            </MDBRow>
-            {/* <MDBBtn
-            onClick={this.handleFormSubmit}
-            color="unique"
-            type="submit"
-          >
-            Find pets!
-            </MDBBtn> */}
+        <form
+              className="search"
+            >
+              <div>
+                <label htmlFor="animal">
+                  Choose an animal
+                    <select
+                    value={this.state.animal}
+                    onChange={this.handleAnimalChange}
+                    className="browser-default custom-select"
+                  >
+                    <option />
+                    {ANIMALS.map(animal => (
+                      <option value={animal} key={animal}>
+                        {animal}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div className="form-group">
+                <label htmlFor="zipcode">
+                  Enter zipcode
+                  <input
+                    value={this.state.location}
+                    onChange={this.handleLocationChange}
+                    type="text"
+                    className="form-control"
+                    id="zipCodeInput"
+                  />
+                </label>
+              </div>
+            </form>
+            <MDBBtn
+              onClick={this.handleFormSubmit}
+              color="unique"
+              type="submit"
+            >
+              Find pets!
+          </MDBBtn>
             <MDBRow>
               <MDBCol className="text-center">
                 <h3>Available Pets:</h3>
@@ -104,7 +126,6 @@ class PetSearch extends Component {
                 {/* </PetResults> */}
               </MDBCol>
             </MDBRow>
-          </MDBContainer>
         {/* </Provider> */}
       </div>
     )

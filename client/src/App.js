@@ -9,9 +9,7 @@ import Greeting from "./components/Greeting/index";
 import Profile from "./pages/User";
 import Posts from "./pages/Posts";
 import PetSearch from "./pages/PetSearch";
-import Image from "./pages/Image";
 import { MDBBtn, MDBCol } from "mdbreact";
-
 import "./app.css";
 
 // import Data from "./components/Data/index";

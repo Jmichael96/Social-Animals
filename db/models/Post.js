@@ -12,10 +12,9 @@ const postSchema = new Schema({
     content: {
       type: String,
     },
-    //   ImageURL : {
-    //     type: String, 
-    //     default : '#'
-    // },
+    images : {
+        type: String, 
+    },
     contact: {
       type: String,
     },

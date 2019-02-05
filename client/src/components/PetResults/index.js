@@ -1,8 +1,8 @@
-import React from "react";
-import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
+import React, { Component } from "react";
+import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 import Pet from "../Pet/index";
 // import petfinderClient from "petfinder-client";
-// import axios from "axios";
+import axios from "axios";
 
 
 // class PetResults extends Component {
@@ -75,3 +75,9 @@ export function PetListItem({
     </li>
   )
 }
+
+// export default function Results(props) {
+//   return (
+//     <PetResults {...props} />
+//   )
+// };

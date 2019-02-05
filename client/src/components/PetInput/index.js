@@ -1,6 +1,7 @@
-import React from "react";
-import { MDBContainer, MDBCol, MDBRow, MDBBtn } from "mdbreact";
+import React, { Component } from "react";
+import { MDBContainer, MDBCol, MDBInput, MDBRow, MDBBtn } from "mdbreact";
 import { ANIMALS } from "petfinder-client";
+import axios from "axios";
 
 function PetInput (props) {
 
@@ -10,7 +11,6 @@ function PetInput (props) {
           <MDBCol>
             <form
               className="search"
-              // onSubmit={this.handleFormSubmit}
             >
               <div>
                 <label htmlFor="animal">
