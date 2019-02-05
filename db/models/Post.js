@@ -3,24 +3,23 @@ const Schema = mongoose.Schema;
 // var uniqueValidator = require('mongoose-unique-validator');
 // Define our model
 const postSchema = new Schema({
-    title: {
-      type: String,
-    },
-    authorName: {
-      type: String,
-    },
-    content: {
-      type: String,
-    },
-    images : {
-        type: String, 
-    },
-    contact: {
-      type: String,
-    },
-    date:{
-      type: String,
-    },
+  authorName: {type: String},
+  title: {
+    type: String,
+  },
+  content: {
+    type: String,
+  },
+  images: {
+    type: String,
+  },
+  contact: {
+    type: String,
+  },
+  date: {
+    type: String,
+  },
+  users: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 // postSchema.plugin(uniqueValidator);
 // Create the model class

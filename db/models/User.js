@@ -5,9 +5,6 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
-	avatar:{type: String, required: false, 
-	default: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj08OKbqqHgAhUGYK0KHciWDMsQjRx6BAgBEAU&url=https%3A%2F%2Fwww.onlinewebfonts.com%2Ficon%2F264157&psig=AOvVaw1uBnvOuq_f29IvwiClCiUg&ust=1549343968063126"},
-	
 	firstname:{type: String, required: false},
 	lastname:{type: String, required:false},
 	favoriteAnimal: {type: String, required: false},

@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 // this route is just used to get the user basic info
 router.get('/user', (req, res, next) => {
 	console.log('===== user!!======')
-	console.log(req.body.user)
+	console.log(req.user)
 	if (req.user) {
 		return res.json({ user: req.user })
 	} else {
@@ -15,7 +15,20 @@ router.get('/user', (req, res, next) => {
 	}
 })
 
-router.post('/login', function(req, res, next) {
+router.get("/user-profile", (req, res) =>{
+    if(req.user){
+        User.find({_id: req.user._id})
+        .then((dbUser) =>{
+            res.json(dbUser);
+        })
+    }else{
+        res.json({ user: null });
+    };
+});
+
+router.post(
+	'/login',
+	function(req, res, next) {
 		console.log(req.body)
 		console.log('================')
 		next()
@@ -30,7 +43,9 @@ router.post('/login', function(req, res, next) {
 			delete cleanUser.local.password
 		}
 		res.json({ user: cleanUser })
-	});
+	}
+)
+
 
 router.post('/logout', (req, res) => {
 	if (req.user) {
@@ -43,7 +58,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-	const { avatar, firstname, lastname, favoriteAnimal, username, password } = req.body
+	const { firstname, lastname, favoriteAnimal, username, password } = req.body
 	// ADD VALIDATION
 	User.findOne({ 'username': username }, (err, userMatch) => {
 		if (userMatch) {
@@ -53,7 +68,6 @@ router.post('/signup', (req, res) => {
 		}
 		const author = new User({
 			'_id': new mongoose.Types.ObjectId(),
-			'avatar': avatar,
 			'firstname': firstname,
 			'lastname': lastname,
 			'favoriteAnimal': favoriteAnimal,

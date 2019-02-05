@@ -10,8 +10,9 @@ class User extends Component {
 
   componentDidMount() {
     axios.get('/api/users-posts').then(response => {
+      console.log(response.data[0])
       const data = response.data[0];
-      const post = [...data.posts];
+      const post = [data];
       for (var i = 0; i < post.length; i++) {
         let postData = post[i];
         this.state.Posts.push(postData);

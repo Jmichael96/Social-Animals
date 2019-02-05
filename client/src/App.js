@@ -49,7 +49,7 @@ class App extends Component {
     this._login = this._login.bind(this)
   }
   componentDidMount() {
-    axios.get('/api/user-profile').then(response => {
+    axios.get('/api/user').then(response => {
       console.log(response.data)
       if (!!response.data.user) {
         console.log('THERE IS A USER')
@@ -106,7 +106,7 @@ class App extends Component {
           <Route exact path="/" render={() => <Home user={this.state.user} />} />
           <Route exact path="/login" render={() => <LoginForm _login={this._login} />} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
+          <Route exact path="/profile" user={this.state.user} render={() => <Profile user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/posts" component={Posts} />
         </div>

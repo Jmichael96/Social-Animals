@@ -20,7 +20,6 @@ const Home = (props) => {
           Welcome to Social Animals!{" "}
         </p>
         <Carousel />
-
         <Footer />
       </div>)
   }

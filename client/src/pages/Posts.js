@@ -8,6 +8,7 @@ class Posts extends Component {
     state = {
         postArray: [],
     };
+
     componentDidMount() {
         axios.get('/api/posts').then(response => {
             const posts = response.data;
@@ -16,8 +17,6 @@ class Posts extends Component {
                 this.state.postArray.push(post);
                 console.log(posts)
             }
-            console.log('this is outside' + posts);
-
         })
         console.log(this.state);
     };

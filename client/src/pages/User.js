@@ -24,7 +24,7 @@ const Profile = (props) => {
             </MDBNavbarBrand>
             <MDBCollapse id="navbarCollapse3" navbar>
                 <p to="#!"><strong className="font-weight-bold">Name:</strong> {props.user.firstname} {props.user.lastname}</p>
-                <p to="#!" left className="text-center"> <strong className="font-weight-bold"> My Favorite Animal is A:</strong> {props.user.favoriteAnimal}</p> 
+                <p to="#!" className="text-center"> <strong className="font-weight-bold"> My Favorite Animal is A:</strong> {props.user.favoriteAnimal}</p> 
             </MDBCollapse>
           </MDBNavbar>
         </MDBContainer>
