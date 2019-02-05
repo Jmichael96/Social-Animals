@@ -31,6 +31,12 @@ const Profile = (props) => {
         <Posts />
       </div>
     )
+  } else if(props.user._id === props.post.users){
+    Profile = (
+      <div>
+
+      </div>
+    )
   }
   return (
     <div className="Header">
@@ -40,3 +46,4 @@ const Profile = (props) => {
 }
 
 export default Profile;
+

@@ -19,7 +19,6 @@ const DisplayLinks = props => {
         <Link to="/profile"><MDBBtn className="pink darken-4">Profile</MDBBtn></Link>
         <Link to="/posts"><MDBBtn className="pink darken-4">Posts</MDBBtn></Link>
         <Link to="/createpost"><MDBBtn className="pink darken-4">Create Post</MDBBtn></Link>
-        <Link to="/pet"><MDBBtn className="pink darken-4">Pet Search</MDBBtn></Link>
         <Link to="#" onClick={props._logout}><MDBBtn className="logout" color="elegant">Logout</MDBBtn></Link>
       </nav>
     )
@@ -64,7 +63,10 @@ class App extends Component {
         })
       }
     })
+    
+    console.log(this.state);
   }
+
   _logout(event) {
     event.preventDefault()
     console.log('logging out')

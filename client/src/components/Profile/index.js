@@ -22,7 +22,7 @@ class User extends Component {
         console.log(err)
       });
   };
-  render() {
+  render(props) {
     return (
       <div>
         <MDBContainer>

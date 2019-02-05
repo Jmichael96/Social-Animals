@@ -32,6 +32,10 @@ router.post("/create-post", (req, res, ) => {
 
 router.get("/users-posts", function (req, res) {
     if (req.user) {
+
+
+    //   return User.find({ $or: [{_id: req.params._id,}, {users: {$eleMatch: {uid: String(Post.users)}}}]})
+
         Post.find()
             // Specify that we want to populate the retrieved users with any associated notes
             .populate("users")

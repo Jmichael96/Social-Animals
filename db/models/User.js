@@ -5,6 +5,7 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
+	_id:Schema.Types.ObjectId,
 	firstname:{type: String, required: false},
 	lastname:{type: String, required:false},
 	favoriteAnimal: {type: String, required: false},
