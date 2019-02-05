@@ -8,7 +8,6 @@ class Posts extends Component {
     state = {
         postArray: [],
     };
-
     componentDidMount() {
         axios.get('/api/posts').then(response => {
             const posts = response.data;

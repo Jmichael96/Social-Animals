@@ -8,14 +8,10 @@ import axios from "axios";
 import Greeting from "./components/Greeting/index";
 import Profile from "./pages/User";
 import Posts from "./pages/Posts";
-import PetSearch from "./pages/PetSearch";
 import { MDBBtn, MDBCol } from "mdbreact";
 import "./app.css";
 
-// import Data from "./components/Data/index";
-// import CreatePostPage from "./pages/CreatePostPage";
 const DisplayLinks = props => {
-
   if (props.loggedIn) {
     return (
       <nav id="main-nav" className="navbar">
@@ -69,7 +65,6 @@ class App extends Component {
       }
     })
   }
-
   _logout(event) {
     event.preventDefault()
     console.log('logging out')
@@ -83,7 +78,6 @@ class App extends Component {
       }
     })
   }
-
   _login(username, password) {
     axios
       .post('/api/login', {
@@ -102,7 +96,6 @@ class App extends Component {
       })
   }
 
-
   render() {
     return (
       <Router>
@@ -116,7 +109,6 @@ class App extends Component {
           <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/posts" component={Posts} />
-          <Route exact path="/pet" component={PetSearch} user={this.state.user} />
         </div>
       </Router>
     );

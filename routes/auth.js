@@ -15,9 +15,7 @@ router.get('/user', (req, res, next) => {
 	}
 })
 
-router.post(
-	'/login',
-	function(req, res, next) {
+router.post('/login', function(req, res, next) {
 		console.log(req.body)
 		console.log('================')
 		next()
@@ -32,8 +30,7 @@ router.post(
 			delete cleanUser.local.password
 		}
 		res.json({ user: cleanUser })
-	}
-)
+	});
 
 router.post('/logout', (req, res) => {
 	if (req.user) {
@@ -69,6 +66,4 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
-
-
 module.exports = router

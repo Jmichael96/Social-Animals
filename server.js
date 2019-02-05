@@ -2,7 +2,7 @@
 if (process.env.NODE_ENV !== 'production') {
 	console.log('loading dev environments')
 	require('dotenv').config()
-}
+};
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -19,8 +19,8 @@ app.use(
 	bodyParser.urlencoded({
 		extended: false
 	})
-)
-app.use(bodyParser.json())
+);
+app.use(bodyParser.json());
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default passphrase',
@@ -29,27 +29,24 @@ app.use(
 		resave: false,
 		saveUninitialized: false
 	})
-)
+);
 // ===== Passport ====
-app.use(passport.initialize())
-app.use(passport.session()) // will call the deserializeUser
-
+app.use(passport.initialize());
+app.use(passport.session());
+// calling in api routes
 app.use("/api", require("./routes")); 
   
-
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
-})
+});
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
-})
-
-
+});
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
@@ -58,4 +55,4 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname, '../build/'))
 	})
-}
+};
