@@ -1,7 +1,7 @@
 import React from 'react'
 import "./style.css";
 // TODO - add proptypes
-
+// user greeting
 const Header = props => {
 	let Greeting;
 	if (props.user === null) {

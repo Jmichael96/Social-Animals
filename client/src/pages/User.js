@@ -6,7 +6,7 @@ import {
 } from "mdbreact";
 import "./styles/user.css";
 
-
+// displays user profile
 const Profile = (props) => {
   let Profile;
   if (props.user === null) {
@@ -44,6 +44,5 @@ const Profile = (props) => {
     </div>
   )
 }
-
 export default Profile;
 

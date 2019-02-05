@@ -14,7 +14,7 @@ router.get('/user', (req, res, next) => {
 		return res.json({ user: null })
 	}
 })
-
+// getting the whole user profile
 router.get("/user-profile", (req, res) =>{
     if(req.user){
         User.find({_id: req.user._id})
@@ -25,7 +25,7 @@ router.get("/user-profile", (req, res) =>{
         res.json({ user: null });
     };
 });
-
+// post route for login
 router.post(
 	'/login',
 	function(req, res, next) {
@@ -45,8 +45,7 @@ router.post(
 		res.json({ user: cleanUser })
 	}
 )
-
-
+// route to logout
 router.post('/logout', (req, res) => {
 	if (req.user) {
 		req.session.destroy()
@@ -56,7 +55,7 @@ router.post('/logout', (req, res) => {
 		return res.json({ msg: 'no user to log out!' })
 	}
 })
-
+// post route for signup
 router.post('/signup', (req, res) => {
 	const { firstname, lastname, favoriteAnimal, username, password } = req.body
 	// ADD VALIDATION

@@ -1,7 +1,7 @@
 const passport = require('passport')
 const LocalStrategy = require('./localStrategy');
 const User = require('../db/models/User');
-
+// serialized user
 passport.serializeUser((id, done) => {
 	console.log('=== serialize  ===')
 	User.findOne({_id: id}, 'firstname lastname favoriteAnimal username',
@@ -10,7 +10,7 @@ passport.serializeUser((id, done) => {
 		done(null, user);
 	})
 });
-
+// deserialized user
 passport.deserializeUser((id, done) => {
 	User.findOne(
 		{ _id: id },
@@ -22,8 +22,6 @@ passport.deserializeUser((id, done) => {
 		}
 	)
 })
-
 // ==== Register Strategies ====
 passport.use(LocalStrategy)
-
 module.exports = passport

@@ -15,11 +15,11 @@ import {
 } from "mdbreact";
 import "./style.css";
 
+// signup form 
 class SignupForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			avatar: '',
 			firstname: '',
 			lastname: '',
 			favoriteAnimal: '',
@@ -36,12 +36,12 @@ class SignupForm extends Component {
 			[event.target.name]: event.target.value
 		})
 	}
+	// handle submit for signup
 	handleSubmit(event) {
 		event.preventDefault()
 		// TODO - validate!
 		axios
 			.post('/api/signup', {
-				avatar: this.state.avatar,
 				firstname: this.state.firstname,
 				lastname: this.state.lastname,
 				favoriteAnimal: this.state.favoriteAnimal,
@@ -60,6 +60,7 @@ class SignupForm extends Component {
 				}
 			})
 	}
+	
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -78,25 +79,6 @@ class SignupForm extends Component {
                 							</h3>
 									</MDBCardHeader>
 									<form>
-										<label className="mt-3">Avatar</label>
-										<div className="input-group">
-											<div className="input-group-prepend">
-												<span className="input-group-text" id="inputGroupFileAddon01">
-													Upload
-    										</span>
-											</div>
-											<div className="custom-file">
-												<input
-													type="file"
-													className="custom-file-input"
-													id="inputGroupFile01"
-													aria-describedby="inputGroupFileAddon01"
-												/>
-												<label className="custom-file-label" htmlFor="inputGroupFile01">
-													Choose file
-    											</label>
-											</div>
-										</div>
 										<div className="grey-text">
 											<MDBInput
 												label="First Name"

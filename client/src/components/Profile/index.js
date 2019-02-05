@@ -7,7 +7,7 @@ class User extends Component {
   state = {
     Posts: [],
   };
-
+// grabing users posts
   componentDidMount() {
     axios.get('/api/users-posts').then(response => {
       console.log(response.data[0])

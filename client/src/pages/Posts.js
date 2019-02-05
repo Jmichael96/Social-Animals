@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { MDBCol, MDBRow, MDBContainer } from "mdbreact";
 import axios from "axios";
 import AllPosts from "../components/AllPosts/index";
+// displays all posts
 import "./styles/posts.css";
 class Posts extends Component {
 
     state = {
         postArray: [],
     };
-
+// api for getting all posts
     componentDidMount() {
         axios.get('/api/posts').then(response => {
             const posts = response.data;

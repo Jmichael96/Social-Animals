@@ -21,7 +21,6 @@ const postSchema = new Schema({
   },
   users: {type: Schema.Types.ObjectId, ref: 'User'},
 });
-// postSchema.plugin(uniqueValidator);
 // Create the model class
 const Post = mongoose.model('Post', postSchema);
 

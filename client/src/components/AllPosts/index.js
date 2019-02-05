@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import "./style.css";
+// all posts
 const AllPosts = (props) => {
     return (
         <div>

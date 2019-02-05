@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Carousel from "../Carousel/index";
 import Footer from "../Footer/index";
-
+// home funcion for displaying a different layout
 const Home = (props) => {
     let Greeting;
     if (props.user === null) {

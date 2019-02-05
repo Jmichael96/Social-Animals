@@ -14,6 +14,7 @@ import {
 } from "mdbreact";
 import "./style.css";
 
+// login form
 class LoginForm extends Component {
 	constructor() {
 		super()
@@ -26,13 +27,13 @@ class LoginForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
-
+// handling event change and values
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
 	}
-
+// handling submit
 	handleSubmit(event) {
 		event.preventDefault()
 		console.log('handleSubmit')

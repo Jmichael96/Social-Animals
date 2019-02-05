@@ -3,7 +3,7 @@ import axios from "axios";
 import { Redirect } from 'react-router-dom'
 import { MDBContainer, MDBBtn, MDBInput, MDBIcon } from 'mdbreact';
 import "./style.css";
-
+// creating posts
 class CreatePost extends Component {
     constructor() {
         super()
@@ -20,6 +20,7 @@ class CreatePost extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
+    // grabbing user to submit info
     componentDidMount() {
         axios.get('/api/user').then(response => {
           console.log(response.data.user._id)
@@ -45,6 +46,7 @@ class CreatePost extends Component {
             [event.target.name]: event.target.value
         })
     }
+    // handlesubmit
     handleSubmit(event) {
         event.preventDefault();
         axios.post('/api/create-post', {

@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 
-
+// rendering users posts
 const AllPosts = (props) => {
     return (
         <div>

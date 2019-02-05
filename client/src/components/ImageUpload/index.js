@@ -3,12 +3,12 @@ import config from '../../config';
 
 class App extends Component {
 
-    constructor(){
-        super()
-        this.state ={
-            Image: '',
-        }
+  constructor() {
+    super()
+    this.state = {
+      Image: '',
     }
+  }
 
   uploadImage() {
     const r = new XMLHttpRequest()
@@ -17,17 +17,17 @@ class App extends Component {
     let link;
     r.open('POST', 'https://api.imgur.com/3/image/')
     r.setRequestHeader('Authorization', `Client-ID ${config.client}`)
-    if(r.status === 200 && r.readyState === 4) {
-        let res = JSON.parse(r.responseText)
-        link = `https://i.imgur.com/${res.data.id}.png`;
-        console.log(link);
-        this.setState({
-            Image: link
-        })
-    d.append('image', e)
+    if (r.status === 200 && r.readyState === 4) {
+      let res = JSON.parse(r.responseText)
+      link = `https://i.imgur.com/${res.data.id}.png`;
+      console.log(link);
+      this.setState({
+        Image: link
+      })
+      d.append('image', e)
 
-    r.onreadystatechange = function () {
-      
+      r.onreadystatechange = function () {
+
         // const d = document.createElement('div')
         // d.className = 'image'
         // document.getElementsByTagName('body')[0].appendChild(d)
@@ -47,7 +47,7 @@ class App extends Component {
       }
 
     }
-        console.log(this.state);
+    console.log(this.state);
 
     r.send(d)
   }
@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <div className="Image">
         <form>
-          <input type="file" className="input-image" onChange={this.uploadImage.bind(this)}/>
+          <input type="file" className="input-image" onChange={this.uploadImage.bind(this)} />
         </form>
       </div>
     );

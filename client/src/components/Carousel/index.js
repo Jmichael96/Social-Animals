@@ -2,6 +2,7 @@ import React from "react";
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBRow, MDBCol, MDBContainer } from
     "mdbreact";
 import "./style.css";
+// carousel for home page
 const CarouselPage = () => {
     return (
         <MDBContainer>

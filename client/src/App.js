@@ -11,6 +11,7 @@ import Posts from "./pages/Posts";
 import { MDBBtn, MDBCol } from "mdbreact";
 import "./app.css";
 
+// navbar display according to user authentication
 const DisplayLinks = props => {
   if (props.loggedIn) {
     return (
@@ -47,6 +48,7 @@ class App extends Component {
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
   }
+  // to get the user info
   componentDidMount() {
     axios.get('/api/user').then(response => {
       console.log(response.data)
@@ -66,7 +68,7 @@ class App extends Component {
     
     console.log(this.state);
   }
-
+  // to get the logout api
   _logout(event) {
     event.preventDefault()
     console.log('logging out')
@@ -80,6 +82,7 @@ class App extends Component {
       }
     })
   }
+  // login api
   _login(username, password) {
     axios
       .post('/api/login', {
@@ -97,7 +100,6 @@ class App extends Component {
         }
       })
   }
-
   render() {
     return (
       <Router>

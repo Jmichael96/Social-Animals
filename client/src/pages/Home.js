@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/home.css";
 import Carousel from "../components/Carousel/index";
 import Footer from "../components/Footer/index";
+// displaying home according to user authentication
 const Home = (props) => {
   let Greeting;
   if (props.user === null) {
