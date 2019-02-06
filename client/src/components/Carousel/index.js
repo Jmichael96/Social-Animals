@@ -12,7 +12,7 @@ const CarouselPage = () => {
                     <MDBCarousel id="object" activeItem={1} length={4} showControls={true} showIndicators={true} className="z-depth-5">
                         <MDBCarouselInner>
                             <MDBCarouselItem itemId="1">
-                                <img id="img" className="d-block w-100" src="/assets/images/img6.jpg" alt="First slide" />
+                                <img id="img" className="d-block w-100" src="../images/img6.jpg" alt="First slide" />
                             </MDBCarouselItem>
                             <MDBCarouselItem itemId="2">
                                 <img id="img" className="d-block w-100" src="/assets/images/img8.jpg" alt="Second slide" />
