@@ -40,7 +40,7 @@ app.use(passport.session());
 // calling in api routes
 app.use("/api", require("./routes")); 
 
-app.use("/", (req,res) =>{
+app.get("/", (req,res) =>{
 	res.sendfile(path.join(__dirname, "./client/src/public"))
 });
 // ==== if its production environment!
