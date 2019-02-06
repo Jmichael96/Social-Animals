@@ -145,3 +145,4 @@ class CreatePost extends Component {
 }
 
 export default CreatePost;
+

@@ -14,6 +14,7 @@ import {
 	MDBInput
 } from "mdbreact";
 import "./style.css";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 
 // signup form 
 class SignupForm extends Component {
@@ -181,4 +182,3 @@ class SignupForm extends Component {
 	}
 }
 
-export default SignupForm;

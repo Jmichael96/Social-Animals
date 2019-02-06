@@ -1,3 +1,12 @@
 body{
+<<<<<<< HEAD
   background-color: rgb(246,224,181);
+=======
+  background-color: tan;
+}
+
+.nav-link {
+  color: white;
+  
+>>>>>>> 1f6bf8b1d645201e1ef7eb1f20a094326d23afae
 }
