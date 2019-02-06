@@ -11,7 +11,7 @@ const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./db') // loads our connection to the mongo database
 const passport = require('./passport')
 const app = express();
-const PORT =  8080;
+const PORT =  process.env.PORT || 8080;
 const logger = require("morgan");
 app.use(logger("dev"));
 // ===== Middleware ====
@@ -30,11 +30,24 @@ app.use(
 		saveUninitialized: false
 	})
 );
+
 // ===== Passport ====
 app.use(passport.initialize());
 app.use(passport.session());
+// app.get("/", (req, res) =>{
+//   res.sendfile(path.join(__dirname, './client/src/public'));
+// });
 // calling in api routes
 app.use("/api", require("./routes")); 
+// ==== if its production environment!
+if (process.env.NODE_ENV === 'production') {
+	const path = require('path')
+	console.log('YOU ARE IN THE PRODUCTION ENV')
+	app.use('/static', express.static(path.join(__dirname, './client/build/static')))
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, './client/build/index.html'))
+	})
+};
   
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -47,12 +60,3 @@ app.use(function(err, req, res, next) {
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 });
-// ==== if its production environment!
-if (process.env.NODE_ENV === 'production') {
-	const path = require('path')
-	console.log('YOU ARE IN THE PRODUCTION ENV')
-	app.use('/static', express.static(path.join(__dirname, '../build/static')))
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'))
-	})
-};
