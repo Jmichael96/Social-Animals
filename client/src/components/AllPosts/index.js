@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import "./style.css";
+import animals from "./animals.jpg";
 // all posts
 const AllPosts = (props) => {
     return (
@@ -12,7 +13,7 @@ const AllPosts = (props) => {
                             <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
                                 <img
                                     className="img-fluid"
-                                    src="/assets/images/puppy.jpg"
+                                    src={animals}
                                     alt=""
                                 />
                                 <a href="#!">

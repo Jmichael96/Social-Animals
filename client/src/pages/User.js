@@ -1,9 +1,6 @@
 import React from "react";
-import { MDBContainer } from "mdbreact";
 import Posts from "../components/Profile/index";
-import {
-  MDBNavbar, MDBNavbarBrand, MDBCollapse,
-} from "mdbreact";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer } from "mdbreact";
 import "./styles/user.css";
 
 // displays user profile
@@ -18,23 +15,15 @@ const Profile = (props) => {
     Profile = (
       <div>
         <MDBContainer>
-          <MDBNavbar id="navbar" expand="md">
-            <MDBNavbarBrand>
-              <span >{props.user.avatar}</span>
-            </MDBNavbarBrand>
-            <MDBCollapse id="navbarCollapse3" navbar>
-                <p to="#!"><strong className="font-weight-bold">Name:</strong> {props.user.firstname} {props.user.lastname}</p>
-                <p to="#!" className="text-center"> <strong className="font-weight-bold"> My Favorite Animal is A:</strong> {props.user.favoriteAnimal}</p> 
-            </MDBCollapse>
-          </MDBNavbar>
+          <MDBCard className="w-50 mt-3 pink darken-4">
+            <MDBCardBody>
+              <MDBCardTitle className="white-text">Name: {props.user.firstname} {props.user.lastname}</MDBCardTitle>
+              <MDBCardText className="white-text">My favorite animal is: {props.user.favoriteAnimal}!!
+                </MDBCardText>
+            </MDBCardBody>
+          </MDBCard>
         </MDBContainer>
         <Posts />
-      </div>
-    )
-  } else if(props.user._id === props.post.users){
-    Profile = (
-      <div>
-
       </div>
     )
   }
