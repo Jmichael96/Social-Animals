@@ -30,7 +30,6 @@ app.use(
 		saveUninitialized: false
 	})
 );
-
 // ===== Passport ====
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,7 +38,6 @@ app.use(passport.session());
 // });
 // calling in api routes
 app.use("/api", require("./routes")); 
-
 // ==== if its production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
@@ -48,6 +46,9 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname, './client/build/index.html'))
 	})
+	app.get("/", (req, res) =>{
+		res.sendFile(path.join(__dirname, "public"));
+	});
 };
   
 // ====== Error handler ====
