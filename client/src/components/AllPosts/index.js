@@ -36,7 +36,6 @@ const AllPosts = (props) => {
                             <p>CONTACT: {props.contact}</p>
                         </MDBCol>
                     </MDBRow>
-                    <hr className="my-5" />
                 </MDBCardBody>
             </MDBCard>
 

@@ -5,17 +5,19 @@
 #main-nav .pink{
     font-weight: bold;
     box-shadow: 0 1px 5px black;
+    border-radius: 20px;
 }
 #main-nav .pink:hover{
     font-weight: bold;
-    box-shadow: 0 6px 12px black;
+    box-shadow: 0 6px 12px black, 0 4px 20px black;
 }
 /* style for logout button */
 #main-nav .logout{
     font-weight: bold;
     box-shadow: 0 1px 5px black;
+    border-radius: 20px;
 }
 #main-nav .logout:hover{
     font-weight: bold;
-    box-shadow: 0 6px 12px black;
+    box-shadow: 0 6px 12px black, 0 4px 20px black;;
 }

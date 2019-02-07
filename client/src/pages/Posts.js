@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { MDBCol, MDBRow, MDBContainer } from "mdbreact";
 import axios from "axios";
 import AllPosts from "../components/AllPosts/index";
-// displays all posts
 import "./styles/posts.css";
+import { MDBAnimation } from "mdbreact";
+ 
 class Posts extends Component {
 
     state = {
@@ -25,9 +26,11 @@ class Posts extends Component {
         return (
             <div>
                 <MDBContainer>
+                    <MDBAnimation type="slideInRight">
                     <p id="posts-title" className="h1-responsive font-weight-bold text-center">
                         Most Recent posts!
                     </p>
+                    </MDBAnimation>
                     <MDBRow>
                         <MDBCol>
                             {this.state.postArray.map(post =>

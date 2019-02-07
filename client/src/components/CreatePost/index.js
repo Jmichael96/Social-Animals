@@ -3,6 +3,8 @@ import axios from "axios";
 import { Redirect } from 'react-router-dom'
 import { MDBContainer, MDBBtn, MDBInput, MDBIcon } from 'mdbreact';
 import "./style.css";
+import { MDBAnimation } from "mdbreact";
+
 // creating posts
 class CreatePost extends Component {
     constructor() {
@@ -23,24 +25,24 @@ class CreatePost extends Component {
     // grabbing user to submit info
     componentDidMount() {
         axios.get('/api/user').then(response => {
-          console.log(response.data.user._id)
-          if (!!response.data.user) {
-            console.log('THERE IS A USER')
-            this.setState({
-              loggedIn: true,
-              users: response.data.user._id,
-              user: response.data,
-            })
-          } else {
-            this.setState({
-              loggedIn: false,
-              user: null
-            })
-          }
-          console.log("before the post");
-          console.log(this.state);
+            console.log(response.data.user._id)
+            if (!!response.data.user) {
+                console.log('THERE IS A USER')
+                this.setState({
+                    loggedIn: true,
+                    users: response.data.user._id,
+                    user: response.data,
+                })
+            } else {
+                this.setState({
+                    loggedIn: false,
+                    user: null
+                })
+            }
+            console.log("before the post");
+            console.log(this.state);
         })
-      }
+    }
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -68,8 +70,8 @@ class CreatePost extends Component {
                     console.log('duplicate');
                 }
             })
-            console.log("after post BRO")
-            console.log(this.state);
+        console.log("after post BRO")
+        console.log(this.state);
     }
     render() {
         if (this.state.redirectTo) {
@@ -78,50 +80,65 @@ class CreatePost extends Component {
         return (
             <div>
                 <MDBContainer id="form">
-                    <form>
-                        <MDBInput
-                            label="Title"
-                            icon="sort-alpha-down"
-                            group
-                            type="text"
-                            validate
-                            error="wrong"
-                            success="right"
-                            name="title"
-                            value={this.state.title}
-                            onChange={this.handleChange}
-                        />
-                        <MDBInput
-                            label="Your Name"
-                            icon="user-edit"
-                            group
-                            type="text"
-                            validate
-                            error="wrong"
-                            success="right"
-                            name="authorName"
-                            value={this.state.authorName}
-                            onChange={this.handleChange}
-                        />
-                    </form>
-                    <MDBInput
-                        label="Contact Me (optional)"
-                        icon="id-card"
-                        group
-                        type="text"
-                        name="contact"
-                        value={this.state.contact}
-                        onChange={this.handleChange}
-                    />
-                    <MDBInput
-                        label="Date"
-                        icon="calendar-alt"
-                        group
-                        type="text"
-                        name="date"
-                        value={this.state.date}
-                        onChange={this.handleChange}
-                    />
+                    <MDBAnimation type="fadeIn">
+                        <form>
+                            <MDBInput
+                                label="Title"
+                                icon="sort-alpha-down"
+                                group
+                                type="text"
+                                validate
+                                error="wrong"
+                                success="right"
+                                name="title"
+                                value={this.state.title}
+                                onChange={this.handleChange}
+                            />
+                        </form>
+                    </MDBAnimation>
+                    <MDBAnimation type="fadeIn" delay="1s">
+                        <form>
+                            <MDBInput
+                                label="Your Name"
+                                icon="user-edit"
+                                group
+                                type="text"
+                                validate
+                                error="wrong"
+                                success="right"
+                                name="authorName"
+                                value={this.state.authorName}
+                                onChange={this.handleChange}
+                            />
+                        </form>
+                    </MDBAnimation>
+                    <MDBAnimation type="fadeIn" delay="2s">
+                        <form>
+                            <MDBInput
+                                label="Contact Me (optional)"
+                                icon="id-card"
+                                group
+                                type="text"
+                                name="contact"
+                                value={this.state.contact}
+                                onChange={this.handleChange}
+                            />
+                        </form>
+                    </MDBAnimation>
+                    <MDBAnimation type="fadeIn" delay="3s">
+                        <form>
+                            <MDBInput
+                                label="Date"
+                                icon="calendar-alt"
+                                group
+                                type="text"
+                                name="date"
+                                value={this.state.date}
+                                onChange={this.handleChange}
+                            />
+                        </form>
+                    </MDBAnimation>
+                    <MDBAnimation type="fadeIn" delay="4s">
                     <form>
                         <MDBInput
                             type="textarea"
@@ -133,6 +150,7 @@ class CreatePost extends Component {
                             onChange={this.handleChange}
                         />
                     </form>
+                    </MDBAnimation>
                     <Fragment>
                         <MDBBtn onClick={this.handleSubmit} className="pink darken-4">
                             POST <MDBIcon far icon="paper-plane" />

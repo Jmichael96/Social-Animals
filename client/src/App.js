@@ -9,6 +9,7 @@ import Greeting from "./components/Greeting/index";
 import Profile from "./pages/User";
 import Posts from "./pages/Posts";
 import { MDBBtn, MDBCol } from "mdbreact";
+import { MDBAnimation } from "mdbreact";
 import "./app.css";
 
 // navbar display according to user authentication
@@ -16,24 +17,28 @@ const DisplayLinks = props => {
   if (props.loggedIn) {
     return (
       <nav id="main-nav" className="navbar">
-        <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
-        <Link to="/profile"><MDBBtn className="pink darken-4">Profile</MDBBtn></Link>
-        <Link to="/posts"><MDBBtn className="pink darken-4">Posts</MDBBtn></Link>
-        <Link to="/createpost"><MDBBtn className="pink darken-4">Create Post</MDBBtn></Link>
-        <Link to="#" onClick={props._logout}><MDBBtn className="logout" color="elegant">Logout</MDBBtn></Link>
+        <MDBAnimation type="fadeInLeft">
+          <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
+          <Link to="/profile"><MDBBtn className="pink darken-4">Profile</MDBBtn></Link>
+          <Link to="/posts"><MDBBtn className="pink darken-4">Posts</MDBBtn></Link>
+          <Link to="/createpost"><MDBBtn className="pink darken-4">Create Post</MDBBtn></Link>
+          <Link to="#" onClick={props._logout}><MDBBtn className="logout" color="elegant">Logout</MDBBtn></Link>
+        </MDBAnimation>
       </nav>
     )
   } else {
     return (
       <nav id="main-nav" className="navbar">
-        <MDBCol md="5">
-          <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
-          <Link to="/login"><MDBBtn className="pink darken-4">Log In</MDBBtn></Link>
-          <Link to="/signup"><MDBBtn color="elegant">Sign Up</MDBBtn></Link></MDBCol>
-        <MDBCol md="5">
-          <h6>
-            This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!
+        <MDBAnimation type="fadeIn" delay="1s">
+          <MDBCol md="5">
+            <Link to="/"><MDBBtn className="pink darken-4">Home</MDBBtn></Link>
+            <Link to="/login"><MDBBtn className="pink darken-4">Log In</MDBBtn></Link>
+            <Link to="/signup"><MDBBtn color="elegant">Sign Up</MDBBtn></Link></MDBCol>
+          <MDBCol md="5">
+            <h6>
+              This app was created based off our mutual love of animals. Feel free to use this service post about your pet and search for nearby rescue animals!
             </h6></MDBCol>
+        </MDBAnimation>
       </nav>
     )
   }
@@ -65,7 +70,7 @@ class App extends Component {
         })
       }
     })
-    
+
     console.log(this.state);
   }
   // to get the logout api

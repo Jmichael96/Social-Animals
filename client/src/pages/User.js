@@ -2,6 +2,7 @@ import React from "react";
 import Posts from "../components/Profile/index";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer } from "mdbreact";
 import "./styles/user.css";
+import { MDBAnimation } from "mdbreact";
 
 // displays user profile
 const Profile = (props) => {
@@ -14,6 +15,7 @@ const Profile = (props) => {
   } else if (props.user.username) {
     Profile = (
       <div>
+        <MDBAnimation type="flipInX">
         <MDBContainer>
           <MDBCard className="w-50 mt-3 pink darken-4">
             <MDBCardBody>
@@ -23,6 +25,7 @@ const Profile = (props) => {
             </MDBCardBody>
           </MDBCard>
         </MDBContainer>
+        </MDBAnimation>
         <Posts />
       </div>
     )
