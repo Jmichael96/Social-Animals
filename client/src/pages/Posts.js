@@ -28,7 +28,7 @@ class Posts extends Component {
                 <MDBContainer>
                     <MDBAnimation type="slideInRight">
                     <p id="posts-title" className="h1-responsive font-weight-bold text-center">
-                        Most Recent posts!
+                        Most Recent Posts!
                     </p>
                     </MDBAnimation>
                     <MDBRow>
