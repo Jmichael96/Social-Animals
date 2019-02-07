@@ -1,0 +1,21 @@
+#main-nav{
+    box-shadow: 0 2px 15px black;
+}
+/* style for all nav buttons */
+#main-nav .pink{
+    font-weight: bold;
+    box-shadow: 0 1px 5px black;
+}
+#main-nav .pink:hover{
+    font-weight: bold;
+    box-shadow: 0 6px 12px black;
+}
+/* style for logout button */
+#main-nav .logout{
+    font-weight: bold;
+    box-shadow: 0 1px 5px black;
+}
+#main-nav .logout:hover{
+    font-weight: bold;
+    box-shadow: 0 6px 12px black;
+}

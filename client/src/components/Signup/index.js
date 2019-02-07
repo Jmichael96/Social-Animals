@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import {
+	MDBContainer,
+	MDBRow,
+	MDBCol,
+	MDBCard,
+	MDBCardBody,
+	MDBModalFooter,
+	MDBIcon,
+	MDBCardHeader,
+	MDBBtn,
+	MDBInput
+} from "mdbreact";
 import "./style.css";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 
+// signup form 
 class SignupForm extends Component {
 	constructor() {
 		super()
 		this.state = {
+			firstname: '',
+			lastname: '',
+			favoriteAnimal: '',
 			username: '',
 			password: '',
 			confirmPassword: '',
@@ -21,11 +36,15 @@ class SignupForm extends Component {
 			[event.target.name]: event.target.value
 		})
 	}
+	// handle submit for signup
 	handleSubmit(event) {
 		event.preventDefault()
 		// TODO - validate!
 		axios
 			.post('/api/signup', {
+				firstname: this.state.firstname,
+				lastname: this.state.lastname,
+				favoriteAnimal: this.state.favoriteAnimal,
 				username: this.state.username,
 				password: this.state.password
 			})
@@ -41,62 +60,125 @@ class SignupForm extends Component {
 				}
 			})
 	}
+	
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<MDBContainer>
-			  <MDBRow>
-				<MDBCol md="6">
-				  <form>
-					<p className="h5 text-center mb-4">Sign up</p>
-					<div className="grey-text">
-					  <MDBInput
-						label="Your name"
-						icon="user"
-						group
-						type="text"
-						validate
-						error="wrong"
-						success="right"
-						name="username"
-						value={this.state.username}
-					onChange={this.handleChange}
-					  />
-					  <MDBInput
-						label="Your email"
-						icon="envelope"
-						group
-						type="email"
-						validate
-						error="wrong"
-						success="right"
-						value={this.state.email}
-					onChange={this.handleChange}
-					  />
-					 
-					  <MDBInput
-						label="Your password"
-						icon="lock"
-						group
-						type="password"
-						validate
-						value={this.state.password}
-						onChange={this.handleChange}
-					  />
-					</div>
-					<div className="text-center">
-					  <MDBBtn onClick = {this.handleSubmit}color="primary">Register</MDBBtn>
-					</div>
-				  </form>
-				</MDBCol>
-			  </MDBRow>
-			</MDBContainer>
-		  );
-		};
+			<div id="signup-form" className="SignupForm">
+				<MDBContainer>
+					<MDBRow>
+						<MDBCol md="3"></MDBCol>
+						<MDBCol md="5">
+							<MDBCard id="login-form">
+								<MDBCardBody>
+									<MDBCardHeader className="form-header pink lighten-4 rounded">
+										<h3 className="my-3 text-center">
+											<MDBIcon far icon="grin-alt" /> Signup
+                							</h3>
+									</MDBCardHeader>
+									<form>
+										<div className="grey-text">
+											<MDBInput
+												label="First Name"
+												icon="user-alt"
+												type="text"
+												name="firstname"
+												value={this.state.firstname}
+												onChange={this.handleChange}
+												group
 
-};
+												validate
+												error="wrong"
+												success="right"
+											/>
+											<MDBInput
+												label="Last Name"
+												icon="user-alt"
+
+												name="lastname"
+												value={this.state.lastname}
+												onChange={this.handleChange}
+												group
+												type="text"
+												validate
+												error="wrong"
+												success="right"
+											/>
+											<MDBInput
+												label="Favorite Animal"
+												icon="user-alt"
+
+												name="favoriteAnimal"
+												value={this.state.favoriteAnimal}
+												onChange={this.handleChange}
+												group
+												type="text"
+												validate
+												error="wrong"
+												success="right"
+											/>
+											<MDBInput
+												label="Type Your Username"
+												icon="user-alt"
+
+												name="username"
+												value={this.state.username}
+												onChange={this.handleChange}
+												group
+												type="text"
+												validate
+												error="wrong"
+												success="right"
+											/>
+											<MDBInput
+												label="password"
+												icon="lock"
+												group
+												type="password"
+												name="password"
+												value={this.state.password}
+												onChange={this.handleChange}
+												validate
+											/>
+											<MDBInput
+												label="Confirm Password"
+												icon="lock"
+												group
+												type="password"
+												name="confirmPassword"
+												value={this.state.confirmPassword}
+												onChange={this.handleChange}
+												validate
+											/>
+										</div>
+										<div className="text-center mt-4">
+											<MDBBtn
+												id="signupbtn"
+												onClick={this.handleSubmit}
+												color="light-blue"
+												className="mb-3"
+												type="submit"
+											>
+												Signup
+                								</MDBBtn>
+										</div>
+									</form>
+									<MDBModalFooter>
+										<div className="font-weight-light">
+											<Link to="/signup"><p>Not a member? Sign Up</p></Link>
+										</div>
+									</MDBModalFooter>
+								</MDBCardBody>
+							</MDBCard>
+						</MDBCol>
+						<MDBCol md="3"></MDBCol>
+					</MDBRow>
+				</MDBContainer>
+			</div>
+		)
+	}
+}
 
 export default SignupForm;
-

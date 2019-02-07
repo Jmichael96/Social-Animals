@@ -1,65 +1,118 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import {
+	MDBContainer,
+	MDBRow,
+	MDBCol,
+	MDBCard,
+	MDBCardBody,
+	MDBModalFooter,
+	MDBIcon,
+	MDBCardHeader,
+	MDBBtn,
+	MDBInput
+} from "mdbreact";
 import "./style.css";
 
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBIcon } from 'mdbreact';
+// login form
+class LoginForm extends Component {
+	constructor() {
+		super()
+		this.state = {
+			username: '',
+			password: '',
+			redirectTo: null
+		}
+		// this.googleSignin = this.googleSignin.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+// handling event change and values
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+// handling submit
+	handleSubmit(event) {
+		event.preventDefault()
+		console.log('handleSubmit')
+		this.props._login(this.state.username, this.state.password)
+		this.setState({
+			redirectTo: '/'
+		})
+	}
 
-const LoginForm = () => {
-  return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <MDBCard>
-            <MDBCardBody className="mx-4">
-              <div className="text-center">
-                <h3 className="pink-text mb-5">
-                  <strong>Login</strong>
-                </h3>
-              </div>
-              <MDBInput label="Your username" group type="text" validate />
-              <MDBInput label="Your password" group type="password" validate />
-              <div className="md-form pb-3">
-                <div className="form-check my-4">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="defaultCheck12"
-                  />
-                  <label htmlFor="defaultCheck12" className="grey-text">
-                    Accept the
-                    <a href="#!" className="blue-text">
+	render() {
+		if (this.state.redirectTo) {
+			return <Redirect to={{ pathname: this.state.redirectTo }} />
+		} else {
+			return (
+				<div className="LoginForm">
+					<MDBContainer>
+						<MDBRow>
+							<MDBCol md="3"></MDBCol>
+							<MDBCol md="5">
+								<MDBCard id="login-form">
+									<MDBCardBody>
+										<MDBCardHeader className="form-header pink lighten-4 rounded">
+											<h3 className="my-3 text-center">
+												<MDBIcon icon="lock" /> Login
+                							</h3>
+										</MDBCardHeader>
+										<form>
+											<div className="grey-text">
+												<MDBInput
+													label="Type Your Username"
+													icon="user-alt"
+													name="username"
+													value={this.state.username}
+													onChange={this.handleChange}
+													group
+													type="text"
+													validate
+													error="wrong"
+													success="right"
+												/>
+												<MDBInput
+													label="Type your password"
+													icon="lock"
+													group
+													type="password"
+													name="password"
+													value={this.state.password}
+													onChange={this.handleChange}
+													validate
+												/>
+											</div>
 
-                      Terms and Conditions
-                    </a>
-                  </label>
-                </div>
-              </div>
-              <MDBRow className="d-flex align-items-center mb-4">
-                <MDBCol md="6" className="text-center">
-                  <button
-                    type="button"
-                    className="btn btn-pink btn-block btn-rounded z-depth-1"
-                  >
-                    Login
-                  </button>
-                </MDBCol>
-                <MDBCol md="6">
-                 
-                </MDBCol>
-              </MDBRow>
-            </MDBCardBody>
-            
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-	
-  );
-};
+											<div className="text-center mt-4">
+												<MDBBtn
+												id="loginbtn"
+													onClick={this.handleSubmit}
+													color="light-blue"
+													className="mb-3"
+													type="submit"
+												>
+													Login
+                								</MDBBtn>
+											</div>
+										</form>
+										<MDBModalFooter>
+											<div className="font-weight-light">
+												<Link to="/signup"><p>Not a member? Sign Up</p></Link>
+											</div>
+										</MDBModalFooter>
+									</MDBCardBody>
+								</MDBCard>
+							</MDBCol>
+							<MDBCol md="3"></MDBCol>
+						</MDBRow>
+					</MDBContainer>
+				</div>
+			)
+		}
+	}
+}
 
-
-
-export default LoginForm;
-
-
-
+export default LoginForm

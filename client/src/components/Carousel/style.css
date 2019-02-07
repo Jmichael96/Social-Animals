@@ -1,0 +1,8 @@
+/* whole object styling */
+#object{
+    height: 22rem;
+}
+/* image style */
+#img{
+    border-radius: 5px;
+}

@@ -1,22 +1,30 @@
-# React Bootstrap with Material Design
-MDBootstrap for React
+# SOCIAL ANIMALS
 
-## Getting Started
-To test, contribute or just see what we did follow few easy steps:
-- clone the repository
-- cd to the directory with the repository
-- run `yarn install` (or `npm install` if you don't use yarn)
-- run the app using `yarn start` (or `npm start`)
-- to build project use `yarn run build` (od `npm run build`)
-- `yarn run remove-demo` (or `npm run remove-demo`) removes demo app pages
-- enjoy!
+## About
 
-## Bugs
-If you want to report a bug or submit your idea feel fre to open an issue
+Social Animals is a part social networking/part search service for animal lovers.  Through the app, users can share images and post about animals as well as search for animal resources. This application aims to help reduce the amount of animals that are abandoned or surrendered by providing a support network of reliable sources and animal related information.
 
-Before you report a bug, please take your time to find if an issue hasn't been reported yet
+## Using the App
 
-We're also open to pull requests
+To get started, users will first need to create an account. From there, they can create a unique profile and start posting! Included on the home page is a search feature where users can look for pet related services and products. This is a feature that is open to all users and is not limited to just account holders.
 
-## Something Missing?
-If you still have some questions do not hesitate to ask us. Open an issue or [visit our Slack](https://mdbbetatest.slack.com)
+## Future Verions
+
+In future versions we plan to implement direct messaging, as well as integrate the Google Maps Place API to display more detailed serach information. We also would like to incorporate shelter information to make animal adoptions more accessible. 
+
+## Built With
+
+* Create React App
+* Material Design for Bootstrap (React Version)
+* Mongoose
+* Passport JS
+* Axios
+* Express
+* BCrypt 
+
+## Authors
+
+Jeffrey - [https://github.com/Jmichael96]
+Josh - [https://github.com/joshehenry]
+Richelle - [https://github.com/rchlblns]
+

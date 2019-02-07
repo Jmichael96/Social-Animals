@@ -1,19 +1,6 @@
-    #apppage .view {
-      background-image: url('https://www.pixelstalk.net/cute-baby-animal-wallpapers/#/lightbox&slide=1');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100vh;
-    }
-    
-    #apppage h6 {
-      line-height: 1.7;
-    }
-
-    .page-footer {
-      position:fixed;
-   margin-top: 0; 
-   width:100%;
-   height: 20%;
-   padding: 1px;
-    }
+#title{
+  color: black;
+  text-shadow: 0 1px 5px black;
+  font-size: 70px;
+  font-weight: 800;
+}
